@@ -1,0 +1,86 @@
+{
+  "$schema": "./research-input.schema.json",
+  "metadata": {
+    "researchDate": "2025-05-01",
+    "researcher": "compliance-research-agent",
+    "version": "1.0.0"
+  },
+  "findings": [
+    {
+      "regulationId": "DE-C5",
+      "controlId": "CTL-AUDIT-002",
+      "controlName": "Independent Security Certification (BSI C5)",
+      "solutionId": "aws-commercial",
+      "jurisdictionIds": ["EU", "DE", "UK"],
+      "status": "compliant",
+      "zone": "green",
+      "notes": "BSI C5 Type 2 attestation (2025) with 183 services in scope; ISO 27001, ISO 27017, ISO 27018, SOC 2 certified. First cloud provider to receive C5 certification.",
+      "evidence": [
+        "https://aws.amazon.com/compliance/bsi-c5/",
+        "https://aws.amazon.com/blogs/security/aws-achieves-2025-c5-type-2-attestation-report-with-183-services-in-scope/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "regulationId": "FR-SECNUMCLOUD-3.2",
+      "controlId": "CTL-LEGAL-001",
+      "controlName": "Immunity from CLOUD Act",
+      "solutionId": "aws-commercial",
+      "jurisdictionIds": ["FR", "EU"],
+      "status": "non-compliant",
+      "zone": "red",
+      "notes": "Subject to US CLOUD Act as US corporation. AWS European Sovereign Cloud launched Jan 2026 in Germany but still under US parent company jurisdiction.",
+      "evidence": [
+        "https://eliatra.com/blog/the-sovereignty-illusion-why-awss-european-cloud-cannot-escape-us/",
+        "https://aws.amazon.com/blogs/aws/opening-the-aws-european-sovereign-cloud/"
+      ],
+      "confidence": "high"
+    },
+    {
+      "regulationId": "KSA-PDPL",
+      "controlId": "CTL-RESIDENCY-003",
+      "controlName": "Data Storage Location - KSA",
+      "solutionId": "aws-commercial",
+      "jurisdictionIds": ["KSA"],
+      "status": "non-compliant",
+      "zone": "red",
+      "notes": "No KSA local region today; AWS currently serves KSA from Bahrain (me-south-1) which does not meet strict KSA data residency requirements; dedicated KSA region announced.",
+      "evidence": [
+        "https://www.akkodis.com/en/newsroom/news/aws-region-launch-partner-saudi-arabia",
+        "https://aws.amazon.com/compliance/saudi-arabia/"
+      ],
+      "eta": "2026",
+      "confidence": "high"
+    },
+    {
+      "regulationId": "FR-SECNUMCLOUD-3.2",
+      "controlId": "CTL-AUDIT-003",
+      "controlName": "SecNumCloud Certification",
+      "solutionId": "s3ns",
+      "jurisdictionIds": ["FR", "EU"],
+      "status": "compliant",
+      "zone": "green",
+      "notes": "S3NS's PREMI3NS Trusted Cloud obtained SecNumCloud 3.2 qualification Dec 2025. French company majority-owned by Thales.",
+      "evidence": [
+        "https://www.thalesgroup.com/en/news-centre/press-releases/s3ns-announces-secnumcloud-qualification-premi3ns-its-trusted-cloud",
+        "https://www.s3ns.io/en/news/premi3ns-secnumcloud-qualification"
+      ],
+      "confidence": "high"
+    },
+    {
+      "regulationId": "EU-DORA",
+      "controlId": "CTL-THIRDPARTY-001",
+      "controlName": "Critical ICT Provider Oversight",
+      "solutionId": "azure-commercial",
+      "jurisdictionIds": ["EU"],
+      "status": "conditional",
+      "zone": "yellow",
+      "notes": "Microsoft designated as Critical Third-Party Provider (CTPP) under DORA; subject to joint oversight by EBA, ESMA, and EIOPA. DORA applicable since Jan 17, 2025.",
+      "evidence": [
+        "https://learn.microsoft.com/en-us/azure/compliance/offerings/offering-eu-dora",
+        "https://www.microsoft.com/en-us/trust-center/compliance/dora"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

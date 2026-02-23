@@ -1,0 +1,18 @@
+[
+  {
+    "id": "ZONE-001",
+    "solutionId": "cloud-provider-a",
+    "jurisdictionId": "EU",
+    "zone": "yellow",
+    "dataCategory": "general",
+    "rationale": "Commercial provider with EU regions but US ownership"
+  },
+  {
+    "id": "ZONE-002",
+    "solutionId": "cloud-provider-b-sovereign",
+    "jurisdictionId": "EU",
+    "zone": "green",
+    "dataCategory": "general",
+    "rationale": "EU sovereign provider"
+  }
+]

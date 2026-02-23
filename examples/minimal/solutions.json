@@ -1,0 +1,22 @@
+[
+  {
+    "id": "cloud-provider-a",
+    "name": "Cloud Provider A",
+    "provider": "Provider A",
+    "type": "commercial",
+    "description": "Commercial cloud provider",
+    "availableRegions": ["eu-west-1", "us-east-1"],
+    "certifications": ["ISO27001", "SOC2"],
+    "jurisdictionIds": ["EU", "US"]
+  },
+  {
+    "id": "cloud-provider-b-sovereign",
+    "name": "Cloud Provider B Sovereign",
+    "provider": "Provider B",
+    "type": "sovereign",
+    "description": "Sovereign cloud with EU ownership",
+    "availableRegions": ["eu-central-1"],
+    "certifications": ["ISO27001", "SOC2", "C5"],
+    "jurisdictionIds": ["EU"]
+  }
+]

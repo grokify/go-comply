@@ -1,0 +1,347 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/grokify/go-comply/schema/executive-overview.schema.json",
+  "title": "Executive Overview Schema",
+  "description": "Schema for market segment compliance analysis and provider readiness assessment",
+  "type": "object",
+  "required": ["metadata", "segments"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["title", "version", "lastUpdated"],
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title of the executive overview"
+        },
+        "version": {
+          "type": "string",
+          "description": "Version of this analysis"
+        },
+        "lastUpdated": {
+          "type": "string",
+          "format": "date",
+          "description": "Date of last update (YYYY-MM-DD)"
+        },
+        "analyst": {
+          "type": "string",
+          "description": "Name of analyst or team"
+        },
+        "scope": {
+          "type": "string",
+          "description": "Geographic or regulatory scope"
+        }
+      }
+    },
+    "segments": {
+      "type": "array",
+      "description": "Market segments analyzed",
+      "items": {
+        "$ref": "#/$defs/MarketSegment"
+      }
+    },
+    "providerReadiness": {
+      "type": "array",
+      "description": "Provider readiness summary across all segments",
+      "items": {
+        "$ref": "#/$defs/ProviderReadiness"
+      }
+    },
+    "regulatoryContext": {
+      "$ref": "#/$defs/RegulatoryContext"
+    },
+    "outlook": {
+      "$ref": "#/$defs/Outlook"
+    },
+    "keyTakeaways": {
+      "type": "array",
+      "description": "Key takeaways for executives",
+      "items": { "type": "string" }
+    },
+    "glossary": {
+      "type": "object",
+      "description": "Glossary of acronyms and terms",
+      "additionalProperties": { "type": "string" }
+    }
+  },
+  "$defs": {
+    "MarketSegment": {
+      "type": "object",
+      "required": ["id", "name", "type", "jurisdictions", "keyRequirements"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique segment identifier",
+          "examples": ["commercial-general", "regulated-finserv", "government-fr"]
+        },
+        "name": {
+          "type": "string",
+          "description": "Display name for the segment",
+          "examples": ["Commercial Enterprises", "Financial Services", "French Government"]
+        },
+        "type": {
+          "type": "string",
+          "enum": ["commercial", "regulated", "government"],
+          "description": "Segment classification"
+        },
+        "description": {
+          "type": "string",
+          "description": "Detailed description of who falls into this segment"
+        },
+        "industries": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Industries included in this segment",
+          "examples": [["retail", "manufacturing", "technology"]]
+        },
+        "jurisdictions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Applicable jurisdiction IDs",
+          "examples": [["EU", "FR", "DE"]]
+        },
+        "applicableRegulations": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Regulation IDs that apply to this segment"
+        },
+        "keyRequirements": {
+          "type": "array",
+          "description": "Key compliance requirements for this segment",
+          "items": {
+            "$ref": "#/$defs/KeyRequirement"
+          }
+        },
+        "providerAssessments": {
+          "type": "array",
+          "description": "Provider readiness for this specific segment",
+          "items": {
+            "$ref": "#/$defs/SegmentProviderAssessment"
+          }
+        },
+        "riskLevel": {
+          "type": "string",
+          "enum": ["critical", "high", "medium", "low"],
+          "description": "Overall compliance risk level for this segment"
+        },
+        "summary": {
+          "type": "string",
+          "description": "Executive summary for this segment"
+        }
+      }
+    },
+    "KeyRequirement": {
+      "type": "object",
+      "required": ["id", "name", "priority", "status"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Requirement identifier (can reference CTL-xxx or be segment-specific)"
+        },
+        "name": {
+          "type": "string",
+          "description": "Short name of the requirement"
+        },
+        "description": {
+          "type": "string",
+          "description": "What this requirement means for the segment"
+        },
+        "priority": {
+          "type": "string",
+          "enum": ["must-have", "should-have", "nice-to-have"],
+          "description": "Priority level for this segment"
+        },
+        "status": {
+          "type": "string",
+          "enum": ["enforced", "upcoming", "proposed", "guidance"],
+          "description": "Current enforcement status"
+        },
+        "effectiveDate": {
+          "type": "string",
+          "format": "date",
+          "description": "When requirement becomes/became effective"
+        },
+        "sourceRegulations": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Regulation IDs driving this requirement"
+        },
+        "controlIds": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Related control IDs (CTL-xxx)"
+        },
+        "impact": {
+          "type": "string",
+          "description": "Business impact if not met"
+        }
+      }
+    },
+    "SegmentProviderAssessment": {
+      "type": "object",
+      "required": ["solutionId", "overallStatus"],
+      "properties": {
+        "solutionId": {
+          "type": "string",
+          "description": "Solution ID from solutions.json"
+        },
+        "overallStatus": {
+          "type": "string",
+          "enum": ["ready", "partial", "planned", "not-viable"],
+          "description": "Overall readiness for this segment"
+        },
+        "zone": {
+          "type": "string",
+          "enum": ["green", "yellow", "red"],
+          "description": "Compliance zone for this segment"
+        },
+        "gaps": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Key requirement IDs not met"
+        },
+        "strengths": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Key requirement IDs fully met"
+        },
+        "eta": {
+          "type": "string",
+          "description": "Expected date when gaps will be addressed (if planned)"
+        },
+        "notes": {
+          "type": "string",
+          "description": "Additional context"
+        }
+      }
+    },
+    "ProviderReadiness": {
+      "type": "object",
+      "required": ["solutionId", "provider"],
+      "properties": {
+        "solutionId": {
+          "type": "string"
+        },
+        "provider": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["commercial", "govcloud", "sovereign", "national-partner"]
+        },
+        "segmentReadiness": {
+          "type": "object",
+          "description": "Readiness status by segment type",
+          "properties": {
+            "commercial": {
+              "type": "string",
+              "enum": ["ready", "partial", "planned", "not-viable"]
+            },
+            "regulated": {
+              "type": "string",
+              "enum": ["ready", "partial", "planned", "not-viable"]
+            },
+            "government": {
+              "type": "string",
+              "enum": ["ready", "partial", "planned", "not-viable"]
+            }
+          }
+        },
+        "certifications": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "sovereigntyStatus": {
+          "type": "object",
+          "properties": {
+            "euOwned": { "type": "boolean" },
+            "cloudActImmune": { "type": "boolean" },
+            "secNumCloudCertified": { "type": "boolean" },
+            "secNumCloudPlanned": { "type": "boolean" },
+            "secNumCloudEta": { "type": "string" }
+          }
+        },
+        "keyStrengths": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "keyLimitations": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "RegulatoryContext": {
+      "type": "object",
+      "description": "Background context explaining the regulatory landscape",
+      "properties": {
+        "overview": {
+          "type": "string",
+          "description": "Executive summary of the regulatory landscape"
+        },
+        "keyDrivers": {
+          "type": "array",
+          "description": "Key regulatory drivers shaping the landscape",
+          "items": {
+            "type": "object",
+            "required": ["name", "description"],
+            "properties": {
+              "name": { "type": "string" },
+              "description": { "type": "string" },
+              "impact": { "type": "string" },
+              "effectiveDate": { "type": "string" }
+            }
+          }
+        },
+        "implications": {
+          "type": "array",
+          "description": "Key implications for organizations",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "Outlook": {
+      "type": "object",
+      "description": "Future projections and expected developments",
+      "properties": {
+        "summary": {
+          "type": "string",
+          "description": "Summary of expected trajectory"
+        },
+        "shortTerm": {
+          "type": "object",
+          "description": "0-12 months outlook",
+          "properties": {
+            "timeframe": { "type": "string" },
+            "developments": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "mediumTerm": {
+          "type": "object",
+          "description": "1-3 years outlook",
+          "properties": {
+            "timeframe": { "type": "string" },
+            "developments": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "longTerm": {
+          "type": "object",
+          "description": "3+ years outlook",
+          "properties": {
+            "timeframe": { "type": "string" },
+            "developments": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      }
+    }
+  }
+}

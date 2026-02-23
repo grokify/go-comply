@@ -1,0 +1,489 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/grokify/go-comply/schema/compliance-analysis.schema.json",
+  "title": "Compliance Analysis Schema",
+  "description": "Schema for strategic compliance analysis including regulatory context, market segments, and solution landscape",
+  "type": "object",
+  "required": ["metadata", "regulatoryContext", "marketSegments"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["title", "version", "lastUpdated", "scope"],
+      "properties": {
+        "title": {
+          "type": "string",
+          "description": "Title of the analysis"
+        },
+        "version": {
+          "type": "string",
+          "description": "Version of this analysis"
+        },
+        "lastUpdated": {
+          "type": "string",
+          "format": "date",
+          "description": "Date of last update (YYYY-MM-DD)"
+        },
+        "analyst": {
+          "type": "string",
+          "description": "Name of analyst or team"
+        },
+        "scope": {
+          "type": "object",
+          "description": "Geographic and regulatory scope",
+          "properties": {
+            "jurisdictions": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Jurisdiction IDs covered"
+            },
+            "regulations": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Regulation IDs covered"
+            },
+            "timeframe": {
+              "type": "string",
+              "description": "Analysis timeframe (e.g., '2024-2027')"
+            }
+          }
+        }
+      }
+    },
+    "regulatoryContext": {
+      "$ref": "#/$defs/RegulatoryContext"
+    },
+    "marketSegments": {
+      "type": "array",
+      "description": "Market segment analysis",
+      "items": {
+        "$ref": "#/$defs/MarketSegmentAnalysis"
+      }
+    },
+    "solutionLandscape": {
+      "$ref": "#/$defs/SolutionLandscape"
+    },
+    "recommendations": {
+      "type": "array",
+      "description": "Strategic recommendations",
+      "items": {
+        "$ref": "#/$defs/Recommendation"
+      }
+    },
+    "glossary": {
+      "type": "object",
+      "description": "Glossary of acronyms and terms used in the analysis",
+      "additionalProperties": {
+        "type": "string"
+      }
+    }
+  },
+  "$defs": {
+    "RegulatoryContext": {
+      "type": "object",
+      "description": "Explains WHY this compliance landscape exists",
+      "required": ["overview", "keyDrivers"],
+      "properties": {
+        "overview": {
+          "type": "string",
+          "description": "Executive summary of the regulatory context"
+        },
+        "keyDrivers": {
+          "type": "array",
+          "description": "Key regulatory and geopolitical drivers",
+          "items": {
+            "$ref": "#/$defs/RegulatoryDriver"
+          }
+        },
+        "timeline": {
+          "type": "array",
+          "description": "Key events and milestones",
+          "items": {
+            "$ref": "#/$defs/TimelineEvent"
+          }
+        },
+        "threatLandscape": {
+          "type": "object",
+          "description": "Key threats and concerns driving requirements",
+          "properties": {
+            "extraterritorialLaws": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/ExtraterritorialLaw"
+              }
+            },
+            "dataSovereigntyConcerns": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "geopoliticalRisks": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "RegulatoryDriver": {
+      "type": "object",
+      "required": ["id", "name", "type"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Identifier for the driver"
+        },
+        "name": {
+          "type": "string",
+          "description": "Name of the regulatory driver"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["legislation", "court-ruling", "policy", "geopolitical", "standard"],
+          "description": "Type of driver"
+        },
+        "jurisdiction": {
+          "type": "string",
+          "description": "Originating jurisdiction"
+        },
+        "description": {
+          "type": "string",
+          "description": "What this driver does and why it matters"
+        },
+        "impact": {
+          "type": "string",
+          "description": "Impact on cloud compliance"
+        },
+        "effectiveDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "relatedRegulationIds": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "ExtraterritorialLaw": {
+      "type": "object",
+      "required": ["id", "name", "jurisdiction"],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "jurisdiction": {
+          "type": "string",
+          "description": "Country of origin"
+        },
+        "description": {
+          "type": "string"
+        },
+        "scope": {
+          "type": "string",
+          "description": "Who is subject to this law"
+        },
+        "dataAccessPowers": {
+          "type": "string",
+          "description": "What data access powers it grants"
+        },
+        "conflictWithEU": {
+          "type": "string",
+          "description": "How it conflicts with EU law"
+        }
+      }
+    },
+    "TimelineEvent": {
+      "type": "object",
+      "required": ["date", "event"],
+      "properties": {
+        "date": {
+          "type": "string",
+          "description": "Date or date range"
+        },
+        "event": {
+          "type": "string",
+          "description": "What happened"
+        },
+        "impact": {
+          "type": "string",
+          "description": "Impact on compliance landscape"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["legislation", "court-ruling", "enforcement", "certification", "market"]
+        }
+      }
+    },
+    "MarketSegmentAnalysis": {
+      "type": "object",
+      "required": ["id", "name", "type"],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["commercial", "regulated", "government"]
+        },
+        "description": {
+          "type": "string"
+        },
+        "industries": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "jurisdictions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "riskLevel": {
+          "type": "string",
+          "enum": ["critical", "high", "medium", "low"]
+        },
+        "complianceRequirements": {
+          "type": "object",
+          "description": "Requirements grouped by category",
+          "properties": {
+            "mustHave": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/SegmentRequirement" }
+            },
+            "shouldHave": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/SegmentRequirement" }
+            },
+            "niceToHave": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/SegmentRequirement" }
+            }
+          }
+        },
+        "currentSolutions": {
+          "type": "object",
+          "description": "Solutions available today",
+          "properties": {
+            "viable": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/SolutionAssessment" }
+            },
+            "partial": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/SolutionAssessment" }
+            },
+            "notViable": {
+              "type": "array",
+              "items": { "$ref": "#/$defs/SolutionAssessment" }
+            }
+          }
+        },
+        "futureSolutions": {
+          "type": "array",
+          "description": "Solutions planned or in development",
+          "items": { "$ref": "#/$defs/FutureSolution" }
+        },
+        "strategicOutlook": {
+          "type": "object",
+          "properties": {
+            "shortTerm": {
+              "type": "string",
+              "description": "0-12 months outlook"
+            },
+            "mediumTerm": {
+              "type": "string",
+              "description": "1-3 years outlook"
+            },
+            "longTerm": {
+              "type": "string",
+              "description": "3+ years outlook"
+            }
+          }
+        },
+        "keyInsights": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "SegmentRequirement": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Requirement ID or category ID"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "controlIds": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Related CTL-xxx IDs"
+        },
+        "regulationIds": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "enforcementStatus": {
+          "type": "string",
+          "enum": ["enforced", "upcoming", "proposed", "guidance"]
+        },
+        "enforcementDate": {
+          "type": "string",
+          "format": "date"
+        },
+        "whyItMatters": {
+          "type": "string",
+          "description": "Business impact and rationale"
+        }
+      }
+    },
+    "SolutionAssessment": {
+      "type": "object",
+      "required": ["solutionId"],
+      "properties": {
+        "solutionId": {
+          "type": "string"
+        },
+        "zone": {
+          "type": "string",
+          "enum": ["green", "yellow", "red"]
+        },
+        "complianceLevel": {
+          "type": "string",
+          "enum": ["compliant", "partial", "conditional", "non-compliant", "banned"]
+        },
+        "strengths": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "gaps": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "FutureSolution": {
+      "type": "object",
+      "required": ["solutionId", "expectedStatus"],
+      "properties": {
+        "solutionId": {
+          "type": "string"
+        },
+        "expectedStatus": {
+          "type": "string",
+          "enum": ["viable", "partial", "uncertain"]
+        },
+        "eta": {
+          "type": "string",
+          "description": "Expected availability date or timeframe"
+        },
+        "dependencies": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "What needs to happen for this to become viable"
+        },
+        "confidence": {
+          "type": "string",
+          "enum": ["high", "medium", "low"],
+          "description": "Confidence in the timeline"
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "SolutionLandscape": {
+      "type": "object",
+      "description": "Overall solution landscape analysis",
+      "properties": {
+        "overview": {
+          "type": "string"
+        },
+        "categories": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/SolutionCategory"
+          }
+        },
+        "emergingTrends": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "SolutionCategory": {
+      "type": "object",
+      "required": ["id", "name", "solutions"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Category identifier"
+        },
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "characteristics": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "solutions": {
+          "type": "array",
+          "items": { "type": "string" },
+          "description": "Solution IDs in this category"
+        },
+        "segmentViability": {
+          "type": "object",
+          "properties": {
+            "commercial": { "type": "string", "enum": ["viable", "partial", "not-viable"] },
+            "regulated": { "type": "string", "enum": ["viable", "partial", "not-viable"] },
+            "government": { "type": "string", "enum": ["viable", "partial", "not-viable"] }
+          }
+        }
+      }
+    },
+    "Recommendation": {
+      "type": "object",
+      "required": ["id", "segment", "recommendation"],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "segment": {
+          "type": "string",
+          "enum": ["commercial", "regulated", "government", "all"]
+        },
+        "priority": {
+          "type": "string",
+          "enum": ["critical", "high", "medium", "low"]
+        },
+        "recommendation": {
+          "type": "string"
+        },
+        "rationale": {
+          "type": "string"
+        },
+        "actions": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "timeframe": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

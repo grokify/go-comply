@@ -1,0 +1,12 @@
+[
+  {
+    "id": "EXAMPLE-REG",
+    "name": "Example Data Protection Regulation",
+    "shortName": "EDPR",
+    "description": "Example regulation demonstrating the data structure",
+    "jurisdictionId": "EU",
+    "status": "enforceable",
+    "effectiveDate": "2024-01-01",
+    "tags": ["data-protection", "privacy"]
+  }
+]

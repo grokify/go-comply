@@ -1,0 +1,36 @@
+[
+  {
+    "id": "MAP-001",
+    "requirementId": "EXAMPLE-REG-01",
+    "solutionId": "cloud-provider-a",
+    "jurisdictionIds": ["EU"],
+    "complianceLevel": "partial",
+    "zone": "yellow",
+    "notes": "Requires EU region selection"
+  },
+  {
+    "id": "MAP-002",
+    "requirementId": "EXAMPLE-REG-01",
+    "solutionId": "cloud-provider-b-sovereign",
+    "jurisdictionIds": ["EU"],
+    "complianceLevel": "compliant",
+    "zone": "green",
+    "notes": "Native EU sovereignty"
+  },
+  {
+    "id": "MAP-003",
+    "requirementId": "EXAMPLE-REG-02",
+    "solutionId": "cloud-provider-a",
+    "complianceLevel": "compliant",
+    "zone": "green",
+    "notes": "Supports encryption at rest"
+  },
+  {
+    "id": "MAP-004",
+    "requirementId": "EXAMPLE-REG-02",
+    "solutionId": "cloud-provider-b-sovereign",
+    "complianceLevel": "compliant",
+    "zone": "green",
+    "notes": "Supports encryption at rest"
+  }
+]

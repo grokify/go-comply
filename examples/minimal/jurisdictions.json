@@ -1,0 +1,15 @@
+[
+  {
+    "id": "EU",
+    "name": "European Union",
+    "type": "supranational",
+    "description": "European Union member states"
+  },
+  {
+    "id": "US",
+    "name": "United States",
+    "type": "country",
+    "iso3166": "US",
+    "description": "United States of America"
+  }
+]

@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://go-comply.dev/schema/research-input.schema.json",
+  "title": "Compliance Research Input",
+  "description": "Schema for research assistants to submit compliance findings that can be imported into mappings.json",
+  "type": "object",
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "researchDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Date research was conducted (YYYY-MM-DD)"
+        },
+        "researcher": {
+          "type": "string",
+          "description": "Name or ID of researcher/agent"
+        },
+        "version": {
+          "type": "string",
+          "description": "Version of this research submission"
+        }
+      },
+      "required": ["researchDate"]
+    },
+    "findings": {
+      "type": "array",
+      "description": "Array of compliance findings",
+      "items": {
+        "$ref": "#/$defs/finding"
+      }
+    }
+  },
+  "required": ["metadata", "findings"],
+  "$defs": {
+    "finding": {
+      "type": "object",
+      "properties": {
+        "regulationId": {
+          "type": "string",
+          "description": "Regulation ID from regulations.json (e.g., 'FR-SECNUMCLOUD-3.2', 'EU-DORA')",
+          "examples": ["FR-SECNUMCLOUD-3.2", "EU-DORA", "EU-GDPR", "DE-C5", "EU-NIS2", "KSA-PDPL"]
+        },
+        "controlId": {
+          "type": "string",
+          "description": "Control/Requirement ID from requirements.json (e.g., 'CTL-RESIDENCY-001')",
+          "pattern": "^CTL-[A-Z]+-[0-9]+$",
+          "examples": ["CTL-RESIDENCY-001", "CTL-OWNERSHIP-001", "CTL-LEGAL-001"]
+        },
+        "controlName": {
+          "type": "string",
+          "description": "Human-readable control name for reference"
+        },
+        "solutionId": {
+          "type": "string",
+          "description": "Solution ID from solutions.json",
+          "enum": [
+            "aws-commercial",
+            "aws-govcloud",
+            "aws-eu-sovereign",
+            "azure-commercial",
+            "azure-government",
+            "bleu-cloud",
+            "google-cloud",
+            "s3ns",
+            "t-systems-sovereign",
+            "ovhcloud",
+            "cloud-temple",
+            "outscale",
+            "scaleway"
+          ]
+        },
+        "jurisdictionIds": {
+          "type": "array",
+          "description": "Jurisdictions this finding applies to",
+          "items": {
+            "type": "string",
+            "enum": ["EU", "FR", "DE", "UK", "KSA", "NL", "IT", "ES", "IE", "SE"]
+          },
+          "minItems": 1
+        },
+        "status": {
+          "type": "string",
+          "description": "Compliance status",
+          "enum": ["compliant", "partial", "conditional", "non-compliant", "banned", "unknown"]
+        },
+        "zone": {
+          "type": "string",
+          "description": "Compliance zone (red=banned, yellow=conditional, green=compliant)",
+          "enum": ["red", "yellow", "green"]
+        },
+        "notes": {
+          "type": "string",
+          "description": "Detailed explanation of the compliance status"
+        },
+        "evidence": {
+          "type": "array",
+          "description": "URLs to authoritative sources supporting this finding",
+          "items": {
+            "type": "string",
+            "format": "uri"
+          }
+        },
+        "eta": {
+          "type": "string",
+          "description": "Expected availability date if status is conditional/partial (e.g., '2026', 'Q4 2026')"
+        },
+        "confidence": {
+          "type": "string",
+          "description": "Confidence level in this finding",
+          "enum": ["high", "medium", "low"],
+          "default": "medium"
+        }
+      },
+      "required": ["controlId", "solutionId", "jurisdictionIds", "status", "notes"],
+      "additionalProperties": false
+    }
+  }
+}

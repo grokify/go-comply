@@ -1,0 +1,18 @@
+[
+  {
+    "id": "EXAMPLE-REG-01",
+    "name": "Data Residency",
+    "description": "Data must be stored within the jurisdiction",
+    "regulationId": "EXAMPLE-REG",
+    "category": "data-residency",
+    "severity": "high"
+  },
+  {
+    "id": "EXAMPLE-REG-02",
+    "name": "Encryption at Rest",
+    "description": "Data must be encrypted at rest",
+    "regulationId": "EXAMPLE-REG",
+    "category": "encryption",
+    "severity": "medium"
+  }
+]
