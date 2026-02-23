@@ -1,0 +1,81 @@
+site_name: Go-Comply
+site_description: A Go framework for analyzing compliance regulations with machine-readable data structures
+site_url: https://grokify.github.io/go-comply/
+repo_url: https://github.com/grokify/go-comply
+repo_name: grokify/go-comply
+
+theme:
+  name: material
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.highlight
+    - content.code.copy
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: getting-started/installation.md
+    - Quick Start: getting-started/quickstart.md
+  - User Guide:
+    - For Compliance Officers:
+      - Executive Overview: guide/compliance-officers/executive-overview.md
+      - Web Viewer: guide/compliance-officers/web-viewer.md
+      - Understanding Zones: guide/compliance-officers/zones.md
+      - Reading Mappings: guide/compliance-officers/mappings.md
+    - For Research Assistants:
+      - Research Workflow: guide/research/workflow.md
+      - Input Schema: guide/research/schema.md
+      - Evidence Guidelines: guide/research/evidence.md
+    - For Developers:
+      - CLI Reference: guide/developers/cli.md
+      - Go Library: guide/developers/library.md
+      - Data Model: guide/developers/data-model.md
+    - For Data Maintainers:
+      - JSON Schemas: guide/maintainers/schemas.md
+      - Validation: guide/maintainers/validation.md
+  - Reference:
+    - Regulations: reference/regulations.md
+    - Requirements: reference/requirements.md
+    - Solutions: reference/solutions.md
+    - Control Mapping: reference/control-mapping.md
+    - Compliance Analysis: reference/compliance-analysis.md
+  - Examples:
+    - Data Residency: examples/data-residency.md
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - tables
+  - attr_list
+  - md_in_html
+
+plugins:
+  - search
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/grokify/go-comply
