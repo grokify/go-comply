@@ -1,0 +1,764 @@
+[
+  {
+    "id": "CTL-RESIDENCY-001",
+    "name": "Data Storage Location - EU",
+    "description": "Customer data must be stored exclusively within EU/EEA member state data centers",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "data-residency",
+    "subcategory": "storage-location",
+    "severity": "critical",
+    "keywords": ["data-residency", "storage", "eu-territory", "data-center"],
+    "applicability": {
+      "entityTypes": ["essential-entity", "government", "critical-infrastructure"],
+      "dataTypes": ["essential-data", "sensitive-data", "government-data"],
+      "conditions": "Required for SecNumCloud qualification and French government contracts"
+    }
+  },
+  {
+    "id": "CTL-RESIDENCY-002",
+    "name": "Data Processing Location - EU",
+    "description": "All data processing operations must occur within EU/EEA territory, including backups, analytics, and support access",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "data-residency",
+    "subcategory": "processing-location",
+    "severity": "critical",
+    "keywords": ["data-processing", "compute", "eu-territory"],
+    "applicability": {
+      "entityTypes": ["essential-entity", "government"],
+      "conditions": "Includes all processing: primary, backup, disaster recovery, analytics"
+    }
+  },
+  {
+    "id": "CTL-RESIDENCY-003",
+    "name": "Data Storage Location - KSA",
+    "description": "Sensitive personal data of Saudi residents must be stored within Kingdom of Saudi Arabia",
+    "regulationId": "KSA-PDPL",
+    "category": "data-residency",
+    "subcategory": "storage-location",
+    "severity": "high",
+    "keywords": ["data-residency", "saudi", "localization"],
+    "applicability": {
+      "dataTypes": ["sensitive-personal-data"],
+      "conditions": "Required for sensitive data of Saudi data subjects"
+    }
+  },
+  {
+    "id": "CTL-RESIDENCY-004",
+    "name": "Data Location Transparency",
+    "description": "Provider must disclose all locations where customer data is stored and processed, including sub-processors",
+    "regulationId": "DE-C5",
+    "category": "data-residency",
+    "subcategory": "transparency",
+    "severity": "medium",
+    "keywords": ["transparency", "disclosure", "data-location", "sub-processors"],
+    "applicability": {
+      "conditions": "Required for BSI C5 attestation"
+    }
+  },
+  {
+    "id": "CTL-RESIDENCY-005",
+    "name": "Customer Control Over Data Location",
+    "description": "Customer must be able to specify and restrict data processing to specific geographic regions",
+    "regulationId": "DE-C5",
+    "category": "data-residency",
+    "subcategory": "customer-control",
+    "severity": "medium",
+    "keywords": ["region-selection", "customer-control", "data-location"]
+  },
+  {
+    "id": "CTL-ACCESS-001",
+    "name": "Privileged Access from EU Only",
+    "description": "Administrative and privileged access to customer data and systems must originate from EU territory",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "access-control",
+    "subcategory": "access-location",
+    "severity": "critical",
+    "keywords": ["privileged-access", "admin-access", "geographic-restriction"],
+    "applicability": {
+      "conditions": "Applies to all administrative, support, and maintenance access"
+    }
+  },
+  {
+    "id": "CTL-ACCESS-002",
+    "name": "No Remote Access from Non-EU Jurisdictions",
+    "description": "Provider personnel may not access customer data remotely from outside EU/EEA, even for support purposes",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "access-control",
+    "subcategory": "remote-access",
+    "severity": "critical",
+    "keywords": ["remote-access", "support-access", "geographic-restriction"]
+  },
+  {
+    "id": "CTL-ACCESS-003",
+    "name": "Customer Access Logging and Audit",
+    "description": "All access to customer data must be logged with sufficient detail for customer audit, including accessor identity, location, and actions",
+    "regulationId": "EU-NIS2",
+    "sectionId": "NIS2-ART21",
+    "category": "access-control",
+    "subcategory": "audit-logging",
+    "severity": "high",
+    "keywords": ["access-logging", "audit-trail", "transparency"],
+    "applicability": {
+      "entityTypes": ["essential-entity", "important-entity"]
+    }
+  },
+  {
+    "id": "CTL-ACCESS-004",
+    "name": "Customer Approval for Provider Access",
+    "description": "Provider access to customer data for support or maintenance requires explicit customer approval or notification",
+    "regulationId": "EU-DORA",
+    "sectionId": "DORA-ART28",
+    "category": "access-control",
+    "subcategory": "access-approval",
+    "severity": "high",
+    "keywords": ["access-approval", "customer-consent", "support-access"],
+    "applicability": {
+      "sectors": ["banking", "insurance", "investment"]
+    }
+  },
+  {
+    "id": "CTL-ENCRYPTION-001",
+    "name": "Customer-Managed Encryption Keys",
+    "description": "Customer must have option to manage their own encryption keys (BYOK/CMK) with keys stored under customer control",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "encryption",
+    "subcategory": "key-management",
+    "severity": "critical",
+    "keywords": ["cmk", "byok", "encryption-keys", "key-custody"],
+    "applicability": {
+      "dataTypes": ["essential-data", "sensitive-data"]
+    }
+  },
+  {
+    "id": "CTL-ENCRYPTION-002",
+    "name": "Encryption Key Storage in EU",
+    "description": "Encryption keys must be stored and managed within EU territory, not accessible to non-EU jurisdictions",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "encryption",
+    "subcategory": "key-residency",
+    "severity": "critical",
+    "keywords": ["key-residency", "key-storage", "eu-territory", "hsm"]
+  },
+  {
+    "id": "CTL-ENCRYPTION-003",
+    "name": "Provider Cannot Access Plaintext Without Customer",
+    "description": "Technical controls must prevent provider from accessing customer plaintext data without customer-held keys",
+    "regulationId": "EU-SCHREMS-II",
+    "category": "encryption",
+    "subcategory": "technical-measures",
+    "severity": "critical",
+    "keywords": ["encryption", "plaintext-access", "technical-controls", "supplementary-measures"],
+    "applicability": {
+      "conditions": "EDPB recommended supplementary measure for US transfers"
+    }
+  },
+  {
+    "id": "CTL-ENCRYPTION-004",
+    "name": "Data Encrypted at Rest",
+    "description": "All customer data must be encrypted at rest using industry-standard algorithms (AES-256 or equivalent)",
+    "regulationId": "DE-C5",
+    "category": "encryption",
+    "subcategory": "encryption-at-rest",
+    "severity": "high",
+    "keywords": ["encryption-at-rest", "aes-256", "data-protection"]
+  },
+  {
+    "id": "CTL-ENCRYPTION-005",
+    "name": "Data Encrypted in Transit",
+    "description": "All data in transit must be encrypted using TLS 1.2+ or equivalent",
+    "regulationId": "DE-C5",
+    "category": "encryption",
+    "subcategory": "encryption-in-transit",
+    "severity": "high",
+    "keywords": ["encryption-in-transit", "tls", "transport-security"]
+  },
+  {
+    "id": "CTL-STAFF-001",
+    "name": "EU/EEA Citizenship for Privileged Access",
+    "description": "Personnel with privileged access to customer data must be EU/EEA citizens or permanent residents",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "personnel",
+    "subcategory": "citizenship",
+    "severity": "critical",
+    "keywords": ["citizenship", "eu-personnel", "privileged-access", "nationality"]
+  },
+  {
+    "id": "CTL-STAFF-002",
+    "name": "Staff Located in EU for Support",
+    "description": "Support and operations personnel handling customer data must be physically located within EU/EEA",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "personnel",
+    "subcategory": "staff-location",
+    "severity": "critical",
+    "keywords": ["staff-location", "support-personnel", "operations"]
+  },
+  {
+    "id": "CTL-STAFF-003",
+    "name": "Background Checks for Personnel",
+    "description": "Personnel with access to customer data must undergo background checks appropriate to data sensitivity",
+    "regulationId": "DE-C5",
+    "category": "personnel",
+    "subcategory": "background-checks",
+    "severity": "high",
+    "keywords": ["background-checks", "vetting", "security-clearance"]
+  },
+  {
+    "id": "CTL-STAFF-004",
+    "name": "Security Awareness Training",
+    "description": "All personnel with data access must complete security awareness training including data protection requirements",
+    "regulationId": "EU-NIS2",
+    "sectionId": "NIS2-ART21",
+    "category": "personnel",
+    "subcategory": "training",
+    "severity": "medium",
+    "keywords": ["security-training", "awareness", "data-protection"]
+  },
+  {
+    "id": "CTL-OWNERSHIP-001",
+    "name": "EU Majority Ownership (66%+)",
+    "description": "Cloud provider must be at least 66% owned by EU entities (24/39 rule - max 24% non-EU total ownership)",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "ownership",
+    "subcategory": "ownership-structure",
+    "severity": "critical",
+    "keywords": ["ownership", "eu-control", "24-39-rule", "sovereignty"]
+  },
+  {
+    "id": "CTL-OWNERSHIP-002",
+    "name": "No Single Non-EU Shareholder >39%",
+    "description": "No single non-EU shareholder may hold more than 39% ownership stake",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "ownership",
+    "subcategory": "ownership-limits",
+    "severity": "critical",
+    "keywords": ["ownership-limits", "shareholder", "non-eu"]
+  },
+  {
+    "id": "CTL-OWNERSHIP-003",
+    "name": "EU Headquarters and Governance",
+    "description": "Provider must have headquarters and corporate governance within EU jurisdiction",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "ownership",
+    "subcategory": "corporate-structure",
+    "severity": "critical",
+    "keywords": ["headquarters", "governance", "eu-jurisdiction"]
+  },
+  {
+    "id": "CTL-LEGAL-001",
+    "name": "Immunity from CLOUD Act",
+    "description": "Provider must not be subject to US CLOUD Act or similar extraterritorial data access laws",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "legal-immunity",
+    "subcategory": "cloud-act",
+    "severity": "critical",
+    "keywords": ["cloud-act", "extraterritorial", "us-law", "immunity"]
+  },
+  {
+    "id": "CTL-LEGAL-002",
+    "name": "Immunity from FISA 702",
+    "description": "Provider must not be subject to FISA Section 702 surveillance obligations",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "legal-immunity",
+    "subcategory": "fisa",
+    "severity": "critical",
+    "keywords": ["fisa-702", "surveillance", "us-intelligence", "immunity"]
+  },
+  {
+    "id": "CTL-LEGAL-003",
+    "name": "Challenge Foreign Government Requests",
+    "description": "Provider must commit to challenge any foreign government data requests and notify customer where legally permitted",
+    "regulationId": "EU-SCHREMS-II",
+    "category": "legal-immunity",
+    "subcategory": "government-requests",
+    "severity": "high",
+    "keywords": ["government-requests", "notification", "legal-challenge"]
+  },
+  {
+    "id": "CTL-LEGAL-004",
+    "name": "Transparency Report on Government Requests",
+    "description": "Provider must publish transparency reports on government data requests received",
+    "regulationId": "EU-SCHREMS-II",
+    "category": "legal-immunity",
+    "subcategory": "transparency",
+    "severity": "medium",
+    "keywords": ["transparency-report", "government-requests", "disclosure"]
+  },
+  {
+    "id": "CTL-TRANSFER-001",
+    "name": "SCCs for Third Country Transfers",
+    "description": "Transfers to third countries without adequacy decisions require Standard Contractual Clauses",
+    "regulationId": "EU-GDPR",
+    "sectionId": "GDPR-ART46",
+    "category": "data-transfers",
+    "subcategory": "transfer-mechanisms",
+    "severity": "high",
+    "keywords": ["sccs", "standard-contractual-clauses", "third-country"]
+  },
+  {
+    "id": "CTL-TRANSFER-002",
+    "name": "Transfer Impact Assessment for US",
+    "description": "Transfers to US require documented Transfer Impact Assessment evaluating surveillance risks",
+    "regulationId": "EU-SCHREMS-II",
+    "category": "data-transfers",
+    "subcategory": "risk-assessment",
+    "severity": "critical",
+    "keywords": ["tia", "transfer-impact-assessment", "us-transfers", "surveillance-risk"]
+  },
+  {
+    "id": "CTL-TRANSFER-003",
+    "name": "Supplementary Measures for US Transfers",
+    "description": "US transfers require supplementary technical measures (encryption with customer-held keys) beyond SCCs",
+    "regulationId": "EU-SCHREMS-II",
+    "category": "data-transfers",
+    "subcategory": "supplementary-measures",
+    "severity": "critical",
+    "keywords": ["supplementary-measures", "technical-measures", "us-transfers"]
+  },
+  {
+    "id": "CTL-TRANSFER-004",
+    "name": "UK International Data Transfer Agreement",
+    "description": "Transfers from UK to third countries require UK IDTA or approved addendum to EU SCCs",
+    "regulationId": "UK-DPA-2018",
+    "category": "data-transfers",
+    "subcategory": "uk-transfers",
+    "severity": "high",
+    "keywords": ["idta", "uk-transfers", "adequacy"]
+  },
+  {
+    "id": "CTL-TRANSFER-005",
+    "name": "KSA Cross-Border Transfer Approval",
+    "description": "Transfer of Saudi personal data outside KSA requires regulatory approval or adequacy determination",
+    "regulationId": "KSA-PDPL",
+    "category": "data-transfers",
+    "subcategory": "ksa-transfers",
+    "severity": "high",
+    "keywords": ["ksa-transfers", "cross-border", "regulatory-approval"]
+  },
+  {
+    "id": "CTL-INCIDENT-001",
+    "name": "Incident Notification to Authority (24h)",
+    "description": "Early warning of significant incidents must be provided to competent authority within 24 hours",
+    "regulationId": "EU-NIS2",
+    "sectionId": "NIS2-ART23",
+    "category": "incident-response",
+    "subcategory": "authority-notification",
+    "severity": "high",
+    "keywords": ["incident-notification", "24-hours", "csirt"],
+    "effectiveDate": "2024-10-18",
+    "applicability": {
+      "entityTypes": ["essential-entity", "important-entity"]
+    }
+  },
+  {
+    "id": "CTL-INCIDENT-002",
+    "name": "Incident Notification to Authority (72h)",
+    "description": "Full incident notification with assessment must be provided within 72 hours",
+    "regulationId": "EU-NIS2",
+    "sectionId": "NIS2-ART23",
+    "category": "incident-response",
+    "subcategory": "authority-notification",
+    "severity": "high",
+    "keywords": ["incident-notification", "72-hours", "assessment"],
+    "effectiveDate": "2024-10-18"
+  },
+  {
+    "id": "CTL-INCIDENT-003",
+    "name": "GDPR Breach Notification (72h)",
+    "description": "Personal data breaches must be notified to supervisory authority within 72 hours",
+    "regulationId": "EU-GDPR",
+    "sectionId": "GDPR-ART33",
+    "category": "incident-response",
+    "subcategory": "breach-notification",
+    "severity": "high",
+    "keywords": ["breach-notification", "gdpr", "supervisory-authority"]
+  },
+  {
+    "id": "CTL-INCIDENT-004",
+    "name": "Customer Notification of Incidents",
+    "description": "Customer must be notified of security incidents affecting their data without undue delay",
+    "regulationId": "EU-DORA",
+    "sectionId": "DORA-ART28",
+    "category": "incident-response",
+    "subcategory": "customer-notification",
+    "severity": "high",
+    "keywords": ["customer-notification", "incident", "breach"],
+    "applicability": {
+      "sectors": ["banking", "insurance", "investment"]
+    }
+  },
+  {
+    "id": "CTL-AUDIT-001",
+    "name": "Right to Audit Cloud Provider",
+    "description": "Customer must have contractual right to audit provider or receive independent audit reports",
+    "regulationId": "EU-DORA",
+    "sectionId": "DORA-ART28",
+    "category": "audit",
+    "subcategory": "audit-rights",
+    "severity": "high",
+    "keywords": ["audit-rights", "customer-audit", "third-party-audit"],
+    "applicability": {
+      "sectors": ["banking", "insurance", "investment"]
+    }
+  },
+  {
+    "id": "CTL-AUDIT-002",
+    "name": "Independent Security Certification",
+    "description": "Provider must maintain independent security certifications (ISO 27001, SOC 2, etc.)",
+    "regulationId": "DE-C5",
+    "category": "audit",
+    "subcategory": "certification",
+    "severity": "medium",
+    "keywords": ["iso-27001", "soc-2", "certification", "independent-audit"]
+  },
+  {
+    "id": "CTL-AUDIT-003",
+    "name": "SecNumCloud Certification",
+    "description": "Provider must obtain ANSSI SecNumCloud certification for French government and essential entity customers",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "audit",
+    "subcategory": "certification",
+    "severity": "critical",
+    "keywords": ["secnumcloud", "anssi", "certification"],
+    "applicability": {
+      "entityTypes": ["government", "essential-entity"],
+      "conditions": "Required for French government contracts"
+    }
+  },
+  {
+    "id": "CTL-CONTRACT-001",
+    "name": "Exit Strategy and Data Portability",
+    "description": "Contract must include clear exit provisions and data portability guarantees",
+    "regulationId": "EU-DATA-ACT",
+    "category": "contract",
+    "subcategory": "exit-provisions",
+    "severity": "medium",
+    "keywords": ["exit-strategy", "data-portability", "vendor-lock-in"],
+    "effectiveDate": "2025-09-12"
+  },
+  {
+    "id": "CTL-CONTRACT-002",
+    "name": "Switching Period Maximum 30 Days",
+    "description": "Provider must support customer switching to another provider within 30 days",
+    "regulationId": "EU-DATA-ACT",
+    "category": "contract",
+    "subcategory": "switching",
+    "severity": "medium",
+    "keywords": ["switching", "migration", "30-days"],
+    "effectiveDate": "2025-09-12"
+  },
+  {
+    "id": "CTL-CONTRACT-003",
+    "name": "Sub-Processor Approval",
+    "description": "Customer must approve or have right to object to sub-processors handling their data",
+    "regulationId": "EU-GDPR",
+    "sectionId": "GDPR-ART28",
+    "category": "contract",
+    "subcategory": "sub-processors",
+    "severity": "high",
+    "keywords": ["sub-processors", "approval", "data-processing-agreement"]
+  },
+  {
+    "id": "CTL-CONTRACT-004",
+    "name": "ICT Contractual Requirements - DORA",
+    "description": "ICT service contracts must include specific provisions on security, audit, termination, and sub-contracting",
+    "regulationId": "EU-DORA",
+    "sectionId": "DORA-ART30",
+    "category": "contract",
+    "subcategory": "mandatory-provisions",
+    "severity": "high",
+    "keywords": ["ict-contract", "dora", "mandatory-terms"],
+    "effectiveDate": "2025-01-17",
+    "applicability": {
+      "sectors": ["banking", "insurance", "investment"]
+    }
+  },
+  {
+    "id": "CTL-THIRDPARTY-001",
+    "name": "Critical ICT Provider Oversight",
+    "description": "Providers designated as critical ICT third-party providers subject to direct regulatory oversight",
+    "regulationId": "EU-DORA",
+    "sectionId": "DORA-ART31",
+    "category": "third-party-risk",
+    "subcategory": "regulatory-oversight",
+    "severity": "critical",
+    "keywords": ["critical-provider", "regulatory-oversight", "esas"],
+    "effectiveDate": "2025-01-17",
+    "applicability": {
+      "conditions": "Applies if designated as critical ICT provider by ESAs"
+    }
+  },
+  {
+    "id": "CTL-THIRDPARTY-002",
+    "name": "Concentration Risk Assessment",
+    "description": "Financial entities must assess and manage concentration risk from reliance on single providers",
+    "regulationId": "EU-DORA",
+    "sectionId": "DORA-ART29",
+    "category": "third-party-risk",
+    "subcategory": "concentration",
+    "severity": "high",
+    "keywords": ["concentration-risk", "diversification", "resilience"],
+    "effectiveDate": "2025-01-17"
+  },
+  {
+    "id": "CTL-THIRDPARTY-003",
+    "name": "Supply Chain Security Assessment",
+    "description": "Essential entities must assess ICT supply chain security risks and implement appropriate measures",
+    "regulationId": "EU-NIS2",
+    "sectionId": "NIS2-ART21",
+    "category": "third-party-risk",
+    "subcategory": "supply-chain",
+    "severity": "high",
+    "keywords": ["supply-chain", "vendor-assessment", "security-measures"],
+    "effectiveDate": "2024-10-18"
+  },
+  {
+    "id": "CTL-CERT-001",
+    "name": "C5 - Independent Security Certification",
+    "description": "Provider must maintain independent security certification such as BSI C5 or equivalent",
+    "regulationId": "DE-C5",
+    "category": "certification",
+    "subcategory": "security-certification",
+    "severity": "high",
+    "keywords": ["c5", "bsi", "certification", "security-audit"],
+    "relatedIds": ["CTL-AUDIT-002"]
+  },
+  {
+    "id": "CTL-CRYPTO-001",
+    "name": "C5 - Data Encrypted at Rest",
+    "description": "All customer data must be encrypted at rest using industry-standard algorithms",
+    "regulationId": "DE-C5",
+    "category": "encryption",
+    "subcategory": "encryption-at-rest",
+    "severity": "high",
+    "keywords": ["encryption", "at-rest", "aes-256"],
+    "relatedIds": ["CTL-ENCRYPTION-004"]
+  },
+  {
+    "id": "CTL-CRYPTO-002",
+    "name": "C5 - Data Encrypted in Transit",
+    "description": "All data in transit must be encrypted using TLS 1.2+ or equivalent",
+    "regulationId": "DE-C5",
+    "category": "encryption",
+    "subcategory": "encryption-in-transit",
+    "severity": "high",
+    "keywords": ["encryption", "in-transit", "tls"],
+    "relatedIds": ["CTL-ENCRYPTION-005"]
+  },
+  {
+    "id": "CTL-CRYPTO-003",
+    "name": "SecNumCloud 3.2 - Customer-Managed Encryption Keys",
+    "description": "Customer must have option to manage their own encryption keys (BYOK/CMK)",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "encryption",
+    "subcategory": "key-management",
+    "severity": "critical",
+    "keywords": ["cmk", "byok", "encryption-keys"],
+    "relatedIds": ["CTL-ENCRYPTION-001"]
+  },
+  {
+    "id": "CTL-CRYPTO-004",
+    "name": "SecNumCloud 3.2 - Encryption Key Storage in EU",
+    "description": "Encryption keys must be stored and managed within EU territory",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "encryption",
+    "subcategory": "key-residency",
+    "severity": "critical",
+    "keywords": ["key-residency", "eu-territory", "hsm"],
+    "relatedIds": ["CTL-ENCRYPTION-002"]
+  },
+  {
+    "id": "CTL-CRYPTO-005",
+    "name": "Schrems II - Provider Cannot Access Plaintext Without Customer",
+    "description": "Technical controls must prevent provider from accessing customer plaintext data",
+    "regulationId": "EU-SCHREMS-II",
+    "category": "encryption",
+    "subcategory": "technical-measures",
+    "severity": "critical",
+    "keywords": ["plaintext-access", "technical-controls", "supplementary-measures"],
+    "relatedIds": ["CTL-ENCRYPTION-003"]
+  },
+  {
+    "id": "CTL-DORA-002",
+    "name": "DORA - Art.29 Concentration Risk",
+    "description": "Financial entities must assess and manage concentration risk from reliance on single providers",
+    "regulationId": "EU-DORA",
+    "sectionId": "DORA-ART29",
+    "category": "third-party-risk",
+    "subcategory": "concentration",
+    "severity": "high",
+    "keywords": ["concentration-risk", "diversification"],
+    "relatedIds": ["CTL-THIRDPARTY-002"]
+  },
+  {
+    "id": "CTL-DORA-003",
+    "name": "DORA - Art.30 ICT Contractual Requirements",
+    "description": "ICT service contracts must include specific provisions on security, audit, termination",
+    "regulationId": "EU-DORA",
+    "sectionId": "DORA-ART30",
+    "category": "contract",
+    "subcategory": "mandatory-provisions",
+    "severity": "high",
+    "keywords": ["ict-contract", "dora", "mandatory-terms"],
+    "relatedIds": ["CTL-CONTRACT-004"]
+  },
+  {
+    "id": "CTL-DORA-004",
+    "name": "DORA - Art.31 Critical ICT Provider Oversight",
+    "description": "Providers designated as critical ICT third-party providers subject to direct regulatory oversight",
+    "regulationId": "EU-DORA",
+    "sectionId": "DORA-ART31",
+    "category": "third-party-risk",
+    "subcategory": "regulatory-oversight",
+    "severity": "critical",
+    "keywords": ["critical-provider", "regulatory-oversight"],
+    "relatedIds": ["CTL-THIRDPARTY-001"]
+  },
+  {
+    "id": "CTL-GDPR-001",
+    "name": "GDPR - Art.28 Data Processing Agreement",
+    "description": "Contract must include GDPR-compliant data processing agreement provisions",
+    "regulationId": "EU-GDPR",
+    "sectionId": "GDPR-ART28",
+    "category": "contract",
+    "subcategory": "data-processing",
+    "severity": "high",
+    "keywords": ["dpa", "data-processing-agreement", "gdpr"],
+    "relatedIds": ["CTL-CONTRACT-003"]
+  },
+  {
+    "id": "CTL-GDPR-002",
+    "name": "GDPR - Art.46 Transfer Mechanisms",
+    "description": "Transfers to third countries require appropriate safeguards such as SCCs",
+    "regulationId": "EU-GDPR",
+    "sectionId": "GDPR-ART46",
+    "category": "data-transfers",
+    "subcategory": "transfer-mechanisms",
+    "severity": "high",
+    "keywords": ["sccs", "transfer-safeguards", "third-country"],
+    "relatedIds": ["CTL-TRANSFER-001"]
+  },
+  {
+    "id": "CTL-GDPR-003",
+    "name": "GDPR - Art.33 Breach Notification",
+    "description": "Personal data breaches must be notified to supervisory authority within 72 hours",
+    "regulationId": "EU-GDPR",
+    "sectionId": "GDPR-ART33",
+    "category": "incident-response",
+    "subcategory": "breach-notification",
+    "severity": "high",
+    "keywords": ["breach-notification", "72-hours", "supervisory-authority"],
+    "relatedIds": ["CTL-INCIDENT-003"]
+  },
+  {
+    "id": "CTL-NIS2-001",
+    "name": "NIS2 - Art.21 Supply Chain Security",
+    "description": "Essential entities must assess ICT supply chain security risks",
+    "regulationId": "EU-NIS2",
+    "sectionId": "NIS2-ART21",
+    "category": "third-party-risk",
+    "subcategory": "supply-chain",
+    "severity": "high",
+    "keywords": ["supply-chain", "security-measures"],
+    "relatedIds": ["CTL-THIRDPARTY-003"]
+  },
+  {
+    "id": "CTL-NIS2-002",
+    "name": "NIS2 - Art.23 Incident Notification",
+    "description": "Early warning of significant incidents must be provided within 24 hours",
+    "regulationId": "EU-NIS2",
+    "sectionId": "NIS2-ART23",
+    "category": "incident-response",
+    "subcategory": "authority-notification",
+    "severity": "high",
+    "keywords": ["incident-notification", "24-hours"],
+    "relatedIds": ["CTL-INCIDENT-001"]
+  },
+  {
+    "id": "CTL-PERSONNEL-001",
+    "name": "C5 - Background Checks for Personnel",
+    "description": "Personnel with access to customer data must undergo background checks",
+    "regulationId": "DE-C5",
+    "category": "personnel",
+    "subcategory": "background-checks",
+    "severity": "high",
+    "keywords": ["background-checks", "vetting"],
+    "relatedIds": ["CTL-STAFF-003"]
+  },
+  {
+    "id": "CTL-PERSONNEL-002",
+    "name": "SecNumCloud 3.2 - EU/EEA Citizenship for Privileged Access",
+    "description": "Personnel with privileged access must be EU/EEA citizens or permanent residents",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "personnel",
+    "subcategory": "citizenship",
+    "severity": "critical",
+    "keywords": ["citizenship", "eu-personnel"],
+    "relatedIds": ["CTL-STAFF-001"]
+  },
+  {
+    "id": "CTL-PERSONNEL-003",
+    "name": "SecNumCloud 3.2 - Staff Located in EU for Support",
+    "description": "Support and operations personnel must be physically located within EU/EEA",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "personnel",
+    "subcategory": "staff-location",
+    "severity": "critical",
+    "keywords": ["staff-location", "support-personnel"],
+    "relatedIds": ["CTL-STAFF-002"]
+  },
+  {
+    "id": "CTL-PORTABILITY-001",
+    "name": "Data Act - Exit Strategy and Data Portability",
+    "description": "Contract must include clear exit provisions and data portability guarantees",
+    "regulationId": "EU-DATA-ACT",
+    "category": "contract",
+    "subcategory": "exit-provisions",
+    "severity": "medium",
+    "keywords": ["exit-strategy", "data-portability"],
+    "relatedIds": ["CTL-CONTRACT-001"]
+  },
+  {
+    "id": "CTL-PORTABILITY-002",
+    "name": "Data Act - Switching Period Maximum 30 Days",
+    "description": "Provider must support customer switching to another provider within 30 days",
+    "regulationId": "EU-DATA-ACT",
+    "category": "contract",
+    "subcategory": "switching",
+    "severity": "medium",
+    "keywords": ["switching", "migration", "30-days"],
+    "relatedIds": ["CTL-CONTRACT-002"]
+  },
+  {
+    "id": "CTL-SOVEREIGNTY-001",
+    "name": "SecNumCloud 3.2 - Privileged Access from EU Only",
+    "description": "Administrative and privileged access must originate from EU territory",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "access-control",
+    "subcategory": "access-location",
+    "severity": "critical",
+    "keywords": ["privileged-access", "geographic-restriction"],
+    "relatedIds": ["CTL-ACCESS-001"]
+  },
+  {
+    "id": "CTL-SOVEREIGNTY-002",
+    "name": "SecNumCloud 3.2 - No Remote Access from Non-EU",
+    "description": "Provider personnel may not access customer data remotely from outside EU/EEA",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "category": "access-control",
+    "subcategory": "remote-access",
+    "severity": "critical",
+    "keywords": ["remote-access", "geographic-restriction"],
+    "relatedIds": ["CTL-ACCESS-002"]
+  },
+  {
+    "id": "CTL-TRANSPARENCY-001",
+    "name": "Schrems II - Transparency Report on Government Requests",
+    "description": "Provider must publish transparency reports on government data requests received",
+    "regulationId": "EU-SCHREMS-II",
+    "category": "legal-immunity",
+    "subcategory": "transparency",
+    "severity": "medium",
+    "keywords": ["transparency-report", "government-requests"],
+    "relatedIds": ["CTL-LEGAL-004"]
+  }
+]

@@ -1,0 +1,123 @@
+[
+  {
+    "id": "ENF-FR-SECNUMCLOUD",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "jurisdictionId": "FR",
+    "likelihood": "high",
+    "rationale": "French government actively enforces SecNumCloud for public sector and critical infrastructure. ANSSI conducts audits.",
+    "regulatoryTrends": "Increasing enforcement; government contracts require SecNumCloud certification",
+    "assessmentDate": "2025-01-01",
+    "assessor": "Compliance Team"
+  },
+  {
+    "id": "ENF-EU-NIS2",
+    "regulationId": "EU-NIS2",
+    "jurisdictionId": "EU",
+    "likelihood": "high",
+    "rationale": "NIS2 has significant penalties (up to €10M or 2% of turnover) and member states are transposing into national law",
+    "recentActions": [
+      {
+        "date": "2024-10-17",
+        "entity": "Various EU member states",
+        "description": "NIS2 transposition deadline reached; enforcement begins",
+        "source": "Official Journal of the EU"
+      }
+    ],
+    "regulatoryTrends": "Active enforcement expected across all EU member states",
+    "assessmentDate": "2025-01-01",
+    "assessor": "Compliance Team"
+  },
+  {
+    "id": "ENF-EU-DORA",
+    "regulationId": "EU-DORA",
+    "jurisdictionId": "EU",
+    "likelihood": "high",
+    "rationale": "DORA is a regulation (directly applicable) with strong ESA oversight. Financial regulators are preparing enforcement.",
+    "recentActions": [
+      {
+        "date": "2025-01-17",
+        "entity": "EU Financial Services",
+        "description": "DORA becomes enforceable; supervisory authorities active",
+        "source": "Official Journal of the EU"
+      }
+    ],
+    "regulatoryTrends": "Financial regulators prioritizing ICT third-party risk oversight",
+    "assessmentDate": "2025-01-01",
+    "assessor": "Compliance Team"
+  },
+  {
+    "id": "ENF-EU-GDPR",
+    "regulationId": "EU-GDPR",
+    "jurisdictionId": "EU",
+    "likelihood": "high",
+    "rationale": "GDPR has extensive enforcement history with billions in fines issued since 2018",
+    "recentActions": [
+      {
+        "date": "2023-05-22",
+        "entity": "Meta (Facebook)",
+        "description": "€1.2 billion fine for inadequate data transfer safeguards to US",
+        "penalty": "€1,200,000,000",
+        "source": "Irish DPC"
+      },
+      {
+        "date": "2023-01-04",
+        "entity": "Meta (Facebook/Instagram)",
+        "description": "€390 million fine for forced consent to personalized advertising",
+        "penalty": "€390,000,000",
+        "source": "Irish DPC"
+      }
+    ],
+    "regulatoryTrends": "Continued aggressive enforcement, particularly for data transfers",
+    "assessmentDate": "2025-01-01",
+    "assessor": "Compliance Team"
+  },
+  {
+    "id": "ENF-EU-SCHREMS2",
+    "regulationId": "EU-SCHREMS-II",
+    "jurisdictionId": "EU",
+    "likelihood": "high",
+    "rationale": "DPAs actively enforcing Schrems II requirements; Meta fine demonstrates willingness to act",
+    "recentActions": [
+      {
+        "date": "2023-05-22",
+        "entity": "Meta Platforms Ireland",
+        "description": "€1.2 billion fine and data transfer suspension order",
+        "penalty": "€1,200,000,000",
+        "source": "Irish DPC / EDPB"
+      }
+    ],
+    "regulatoryTrends": "US-EU Data Privacy Framework provides some relief but continued scrutiny expected",
+    "assessmentDate": "2025-01-01",
+    "assessor": "Compliance Team"
+  },
+  {
+    "id": "ENF-KSA-PDPL",
+    "regulationId": "KSA-PDPL",
+    "jurisdictionId": "KSA",
+    "likelihood": "medium",
+    "rationale": "PDPL is relatively new; SDAIA building enforcement capacity",
+    "regulatoryTrends": "Enforcement expected to increase as SDAIA matures",
+    "assessmentDate": "2025-01-01",
+    "assessor": "Compliance Team"
+  },
+  {
+    "id": "ENF-DE-C5",
+    "regulationId": "DE-C5",
+    "jurisdictionId": "DE",
+    "likelihood": "medium",
+    "rationale": "C5 is primarily used for procurement decisions rather than direct enforcement",
+    "regulatoryTrends": "Increasing adoption in public sector procurement",
+    "assessmentDate": "2025-01-01",
+    "assessor": "Compliance Team"
+  },
+  {
+    "id": "ENF-EU-AI-ACT",
+    "regulationId": "EU-AI-ACT",
+    "jurisdictionId": "EU",
+    "likelihood": "uncertain",
+    "rationale": "AI Act is new; enforcement mechanisms still being established",
+    "regulatoryTrends": "Member states establishing national supervisory authorities; guidance expected",
+    "assessmentDate": "2025-01-01",
+    "assessor": "Compliance Team"
+  }
+]

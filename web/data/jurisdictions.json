@@ -1,0 +1,74 @@
+[
+  {
+    "id": "EU",
+    "name": "European Union",
+    "type": "supranational",
+    "description": "European Union member states bound by common regulations",
+    "memberIds": ["AT", "BE", "BG", "HR", "CY", "CZ", "DK", "EE", "FI", "FR", "DE", "GR", "HU", "IE", "IT", "LV", "LT", "LU", "MT", "NL", "PL", "PT", "RO", "SK", "SI", "ES", "SE"]
+  },
+  {
+    "id": "FR",
+    "name": "France",
+    "type": "country",
+    "iso3166": "FR",
+    "parentId": "EU",
+    "description": "France - SecNumCloud regulatory framework"
+  },
+  {
+    "id": "DE",
+    "name": "Germany",
+    "type": "country",
+    "iso3166": "DE",
+    "parentId": "EU",
+    "description": "Germany - C5 certification framework"
+  },
+  {
+    "id": "UK",
+    "name": "United Kingdom",
+    "type": "country",
+    "iso3166": "GB",
+    "description": "United Kingdom - Post-Brexit data protection regime"
+  },
+  {
+    "id": "KSA",
+    "name": "Kingdom of Saudi Arabia",
+    "type": "country",
+    "iso3166": "SA",
+    "description": "Saudi Arabia - PDPL and CITC cloud regulations"
+  },
+  {
+    "id": "NL",
+    "name": "Netherlands",
+    "type": "country",
+    "iso3166": "NL",
+    "parentId": "EU"
+  },
+  {
+    "id": "IT",
+    "name": "Italy",
+    "type": "country",
+    "iso3166": "IT",
+    "parentId": "EU"
+  },
+  {
+    "id": "ES",
+    "name": "Spain",
+    "type": "country",
+    "iso3166": "ES",
+    "parentId": "EU"
+  },
+  {
+    "id": "IE",
+    "name": "Ireland",
+    "type": "country",
+    "iso3166": "IE",
+    "parentId": "EU"
+  },
+  {
+    "id": "SE",
+    "name": "Sweden",
+    "type": "country",
+    "iso3166": "SE",
+    "parentId": "EU"
+  }
+]

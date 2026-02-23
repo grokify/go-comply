@@ -1,0 +1,128 @@
+[
+  {
+    "id": "ZONE-AWS-FR-ESSENTIAL",
+    "solutionId": "aws-commercial",
+    "jurisdictionId": "FR",
+    "zone": "red",
+    "dataCategory": "essential-data",
+    "entityType": "essential-entity",
+    "rationale": "US hyperscalers banned for French essential data under SecNumCloud",
+    "regulationIds": ["FR-SECNUMCLOUD-3.2"]
+  },
+  {
+    "id": "ZONE-AWS-FR-GENERAL",
+    "solutionId": "aws-commercial",
+    "jurisdictionId": "FR",
+    "zone": "green",
+    "dataCategory": "general",
+    "rationale": "Commercial cloud acceptable for non-sensitive workloads",
+    "regulationIds": []
+  },
+  {
+    "id": "ZONE-AWS-DE-FINANCIAL",
+    "solutionId": "aws-commercial",
+    "jurisdictionId": "DE",
+    "zone": "yellow",
+    "dataCategory": "financial-data",
+    "entityType": "financial-entity",
+    "rationale": "Acceptable with DORA compliance measures and concentration risk mitigation",
+    "regulationIds": ["EU-DORA"]
+  },
+  {
+    "id": "ZONE-AWS-EU-PERSONAL",
+    "solutionId": "aws-commercial",
+    "jurisdictionId": "EU",
+    "zone": "yellow",
+    "dataCategory": "personal-data",
+    "rationale": "Requires Schrems II supplementary measures for GDPR compliance",
+    "regulationIds": ["EU-GDPR", "EU-SCHREMS-II"]
+  },
+  {
+    "id": "ZONE-AZURE-FR-ESSENTIAL",
+    "solutionId": "azure-commercial",
+    "jurisdictionId": "FR",
+    "zone": "red",
+    "dataCategory": "essential-data",
+    "entityType": "essential-entity",
+    "rationale": "US hyperscalers banned for French essential data under SecNumCloud",
+    "regulationIds": ["FR-SECNUMCLOUD-3.2"]
+  },
+  {
+    "id": "ZONE-BLEU-FR-ESSENTIAL",
+    "solutionId": "bleu-cloud",
+    "jurisdictionId": "FR",
+    "zone": "yellow",
+    "dataCategory": "essential-data",
+    "entityType": "essential-entity",
+    "rationale": "EU-owned joint venture pursuing SecNumCloud; awaiting certification",
+    "regulationIds": ["FR-SECNUMCLOUD-3.2"]
+  },
+  {
+    "id": "ZONE-OVH-FR-ESSENTIAL",
+    "solutionId": "ovhcloud",
+    "jurisdictionId": "FR",
+    "zone": "green",
+    "dataCategory": "essential-data",
+    "entityType": "essential-entity",
+    "rationale": "SecNumCloud certified, 100% French ownership",
+    "regulationIds": ["FR-SECNUMCLOUD-3.2"]
+  },
+  {
+    "id": "ZONE-OVH-FR-GENERAL",
+    "solutionId": "ovhcloud",
+    "jurisdictionId": "FR",
+    "zone": "green",
+    "dataCategory": "general",
+    "rationale": "Compliant for all data categories in France",
+    "regulationIds": []
+  },
+  {
+    "id": "ZONE-TSYSTEMS-DE-ESSENTIAL",
+    "solutionId": "t-systems-sovereign",
+    "jurisdictionId": "DE",
+    "zone": "green",
+    "dataCategory": "essential-data",
+    "entityType": "essential-entity",
+    "rationale": "German trustee model with C5 certification",
+    "regulationIds": ["DE-C5", "EU-NIS2"]
+  },
+  {
+    "id": "ZONE-TSYSTEMS-DE-FINANCIAL",
+    "solutionId": "t-systems-sovereign",
+    "jurisdictionId": "DE",
+    "zone": "green",
+    "dataCategory": "financial-data",
+    "entityType": "financial-entity",
+    "rationale": "German trustee model acceptable for financial services under DORA",
+    "regulationIds": ["EU-DORA", "DE-C5"]
+  },
+  {
+    "id": "ZONE-AWS-KSA-SENSITIVE",
+    "solutionId": "aws-commercial",
+    "jurisdictionId": "KSA",
+    "zone": "yellow",
+    "dataCategory": "sensitive-personal-data",
+    "rationale": "Requires data localization in KSA region; verify PDPL requirements",
+    "regulationIds": ["KSA-PDPL", "KSA-CITC-CLOUD"]
+  },
+  {
+    "id": "ZONE-CLOUDTEMPLE-FR-ESSENTIAL",
+    "solutionId": "cloud-temple",
+    "jurisdictionId": "FR",
+    "zone": "green",
+    "dataCategory": "essential-data",
+    "entityType": "essential-entity",
+    "rationale": "SecNumCloud certified French sovereign cloud",
+    "regulationIds": ["FR-SECNUMCLOUD-3.2"]
+  },
+  {
+    "id": "ZONE-S3NS-FR-ESSENTIAL",
+    "solutionId": "s3ns",
+    "jurisdictionId": "FR",
+    "zone": "yellow",
+    "dataCategory": "essential-data",
+    "entityType": "essential-entity",
+    "rationale": "EU-owned joint venture pursuing SecNumCloud; awaiting certification",
+    "regulationIds": ["FR-SECNUMCLOUD-3.2"]
+  }
+]

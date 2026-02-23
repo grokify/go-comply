@@ -1,0 +1,38 @@
+[
+  {
+    "id": "NIS2-ESSENTIAL",
+    "name": "Essential Entity",
+    "description": "Entities providing essential services in critical sectors, subject to stricter NIS2 requirements",
+    "regulationId": "EU-NIS2",
+    "sectors": ["energy", "transport", "banking", "financial-market-infrastructure", "health", "drinking-water", "wastewater", "digital-infrastructure", "ict-service-management", "public-administration", "space"],
+    "criteria": "Large enterprises (>250 employees or >€50M turnover) in essential sectors, or designated by member states",
+    "examples": ["Major energy utilities", "Large banks", "Telecommunications providers", "Hospital networks"]
+  },
+  {
+    "id": "NIS2-IMPORTANT",
+    "name": "Important Entity",
+    "description": "Entities in important sectors with less stringent NIS2 requirements than essential entities",
+    "regulationId": "EU-NIS2",
+    "sectors": ["postal-courier", "waste-management", "chemicals", "food-production", "manufacturing", "digital-providers", "research"],
+    "criteria": "Medium enterprises (>50 employees or >€10M turnover) or large enterprises in important sectors",
+    "examples": ["Medium-sized manufacturers", "Research institutions", "Digital service providers"]
+  },
+  {
+    "id": "DORA-FINANCIAL",
+    "name": "Financial Entity",
+    "description": "Financial services entities subject to DORA ICT risk management requirements",
+    "regulationId": "EU-DORA",
+    "sectors": ["banking", "insurance", "investment", "payment-services", "crypto-assets"],
+    "criteria": "All regulated financial entities within scope of DORA Article 2",
+    "examples": ["Credit institutions", "Insurance companies", "Investment firms", "Payment institutions", "Crypto-asset service providers"]
+  },
+  {
+    "id": "SECNUM-OPERATOR",
+    "name": "Operator of Essential Services",
+    "description": "French operators of essential services requiring SecNumCloud-certified cloud providers",
+    "regulationId": "FR-SECNUMCLOUD-3.2",
+    "sectors": ["energy", "transport", "health", "water", "digital-infrastructure", "government"],
+    "criteria": "Operators designated as essential by French authorities (OIV/OSE)",
+    "examples": ["French government ministries", "Critical infrastructure operators", "Healthcare providers"]
+  }
+]

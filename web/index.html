@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go-Comply - Compliance Framework Viewer</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Go-Comply</h1>
+            <p class="subtitle">Compliance Regulations Framework Viewer</p>
+        </div>
+    </header>
+
+    <main>
+        <!-- Data Source Configuration -->
+        <section id="config-section" class="config-panel">
+            <h2>Data Source</h2>
+            <div class="config-form">
+                <label for="data-url">Framework URL:</label>
+                <div class="url-input-group">
+                    <input type="text" id="data-url" placeholder="Enter URL to framework directory (e.g., ./data or https://example.com/data)">
+                    <button id="load-btn">Load</button>
+                </div>
+                <p class="hint">URL should point to a directory containing the JSON files (jurisdictions.json, regulations.json, etc.)</p>
+            </div>
+            <div id="load-status" class="status"></div>
+        </section>
+
+        <!-- Framework Info -->
+        <section id="framework-info" class="panel hidden">
+            <h2>Framework Information</h2>
+            <div class="info-grid">
+                <div class="info-item">
+                    <span class="label">Name:</span>
+                    <span id="fw-name" class="value">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Version:</span>
+                    <span id="fw-version" class="value">-</span>
+                </div>
+                <div class="info-item">
+                    <span class="label">Last Updated:</span>
+                    <span id="fw-updated" class="value">-</span>
+                </div>
+            </div>
+            <p id="fw-description" class="description"></p>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number" id="stat-jurisdictions">0</span>
+                    <span class="stat-label">Jurisdictions</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="stat-regulations">0</span>
+                    <span class="stat-label">Regulations</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="stat-requirements">0</span>
+                    <span class="stat-label">Requirements</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="stat-solutions">0</span>
+                    <span class="stat-label">Solutions</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="stat-mappings">0</span>
+                    <span class="stat-label">Mappings</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="stat-zones">0</span>
+                    <span class="stat-label">Zone Assignments</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation Tabs -->
+        <nav id="nav-tabs" class="tabs hidden">
+            <button class="tab active" data-tab="overview">Overview</button>
+            <button class="tab" data-tab="regulations">Regulations</button>
+            <button class="tab" data-tab="requirements">Requirements</button>
+            <button class="tab" data-tab="solutions">Solutions</button>
+            <button class="tab" data-tab="mappings">Mappings</button>
+            <button class="tab" data-tab="zones">Zone Assignments</button>
+            <button class="tab" data-tab="enforcement">Enforcement</button>
+            <div class="view-toggle-group">
+                <button class="view-toggle active" data-mode="cards" title="Card View">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <rect x="1" y="1" width="6" height="6" rx="1"/>
+                        <rect x="9" y="1" width="6" height="6" rx="1"/>
+                        <rect x="1" y="9" width="6" height="6" rx="1"/>
+                        <rect x="9" y="9" width="6" height="6" rx="1"/>
+                    </svg>
+                </button>
+                <button class="view-toggle" data-mode="table" title="Table View">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor">
+                        <rect x="1" y="1" width="14" height="3" rx="1"/>
+                        <rect x="1" y="6" width="14" height="3" rx="1"/>
+                        <rect x="1" y="11" width="14" height="3" rx="1"/>
+                    </svg>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Filter Panel -->
+        <section id="filter-panel" class="filters hidden">
+            <h3>Filters</h3>
+            <div class="filter-grid">
+                <div class="filter-group">
+                    <label for="filter-jurisdiction">Jurisdiction:</label>
+                    <select id="filter-jurisdiction">
+                        <option value="">All Jurisdictions</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filter-regulation">Regulation:</label>
+                    <select id="filter-regulation">
+                        <option value="">All Regulations</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filter-solution">Solution:</label>
+                    <select id="filter-solution">
+                        <option value="">All Solutions</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filter-zone">Zone:</label>
+                    <select id="filter-zone">
+                        <option value="">All Zones</option>
+                        <option value="red">Red (Banned)</option>
+                        <option value="yellow">Yellow (Conditional)</option>
+                        <option value="green">Green (Compliant)</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="filter-search">Search:</label>
+                    <input type="text" id="filter-search" placeholder="Search...">
+                </div>
+                <div class="filter-group">
+                    <button id="clear-filters-btn">Clear Filters</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Content Panels -->
+        <section id="content-area" class="content hidden">
+            <!-- Overview Tab -->
+            <div id="tab-overview" class="tab-content active">
+                <h2>Executive Overview</h2>
+                <p class="tab-description">Compliance requirements by market segment and provider readiness assessment.</p>
+                <div id="overview-content" class="overview-container"></div>
+            </div>
+
+            <!-- Regulations Tab -->
+            <div id="tab-regulations" class="tab-content">
+                <h2>Regulations</h2>
+                <div id="regulations-cards" class="data-grid"></div>
+                <div id="regulations-table" class="table-container hidden"></div>
+            </div>
+
+            <!-- Requirements Tab -->
+            <div id="tab-requirements" class="tab-content">
+                <h2>Requirements</h2>
+                <div id="requirements-cards" class="data-grid"></div>
+                <div id="requirements-table" class="table-container hidden"></div>
+            </div>
+
+            <!-- Solutions Tab -->
+            <div id="tab-solutions" class="tab-content">
+                <h2>Solutions</h2>
+                <div id="solutions-cards" class="data-grid"></div>
+                <div id="solutions-table" class="table-container hidden"></div>
+            </div>
+
+            <!-- Mappings Tab -->
+            <div id="tab-mappings" class="tab-content">
+                <h2>Compliance Heatmap</h2>
+                <p class="tab-description">Requirements × Solutions matrix showing which solutions can be used for which requirements. Hover for details.</p>
+
+                <!-- Legend -->
+                <div class="heatmap-legend">
+                    <span class="legend-title">Zone Classification:</span>
+                    <span class="legend-item legend-green">Green = Compliant (can use)</span>
+                    <span class="legend-item legend-yellow">Yellow = Conditional (restrictions apply)</span>
+                    <span class="legend-item legend-red">Red = Banned (cannot use)</span>
+                    <span class="legend-item legend-unknown">? = Unknown (not assessed)</span>
+                </div>
+
+                <!-- Mappings Filters -->
+                <div class="mappings-filters">
+                    <div class="checkbox-filter-group">
+                        <span class="filter-label">Jurisdictions:</span>
+                        <div class="checkbox-controls">
+                            <button type="button" id="select-all-jurisdictions" class="checkbox-control-btn">All</button>
+                            <button type="button" id="deselect-all-jurisdictions" class="checkbox-control-btn">None</button>
+                        </div>
+                        <div id="jurisdiction-checkboxes" class="checkbox-list"></div>
+                    </div>
+                    <div class="checkbox-filter-group">
+                        <span class="filter-label">Show Zones:</span>
+                        <div id="zone-checkboxes" class="checkbox-list">
+                            <label class="checkbox-item zone-checkbox-green">
+                                <input type="checkbox" value="green" checked> Compliant
+                            </label>
+                            <label class="checkbox-item zone-checkbox-yellow">
+                                <input type="checkbox" value="yellow" checked> Conditional
+                            </label>
+                            <label class="checkbox-item zone-checkbox-red">
+                                <input type="checkbox" value="red" checked> Banned
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mappings-heatmap" class="heatmap-container"></div>
+                <div id="mappings-table" class="table-container hidden"></div>
+            </div>
+
+            <!-- Zone Assignments Tab -->
+            <div id="tab-zones" class="tab-content">
+                <h2>Zone Classifications</h2>
+                <p class="tab-description">Solutions grouped by compliance zone. Green = compliant, Yellow = conditional, Red = banned.</p>
+                <div id="zones-sectioned" class="zones-sectioned-container"></div>
+            </div>
+
+            <!-- Enforcement Tab -->
+            <div id="tab-enforcement" class="tab-content">
+                <h2>Enforcement Assessments</h2>
+                <div id="enforcement-cards" class="data-grid"></div>
+                <div id="enforcement-table" class="table-container hidden"></div>
+            </div>
+        </section>
+
+        <!-- Detail Modal -->
+        <div id="detail-modal" class="modal hidden">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <div id="modal-body"></div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Go-Comply Compliance Framework Viewer | <a href="https://github.com/grokify/go-comply" target="_blank">GitHub</a></p>
+    </footer>
+
+    <script type="module" src="./src/main.ts"></script>
+</body>
+</html>

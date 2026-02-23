@@ -1,0 +1,9 @@
+{
+  "name": "Data Residency and Sovereignty Compliance Framework",
+  "version": "0.2.0",
+  "description": "Research framework analyzing EU/UK/KSA data residency and sovereignty requirements for US-based B2B SaaS providers. Covers SecNumCloud, NIS2, DORA, GDPR, Schrems II, BSI C5, UK DPA, and KSA PDPL requirements including data localization, access controls, encryption/key management, personnel requirements, and extraterritorial law immunity.",
+  "lastUpdated": "2025-05-01",
+  "status": "research-draft",
+  "scope": "US-based B2B SaaS serving EU/UK/KSA customers",
+  "author": "Compliance Research Team"
+}

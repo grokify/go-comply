@@ -1,0 +1,233 @@
+[
+  {
+    "id": "aws-commercial",
+    "name": "AWS Commercial Cloud",
+    "provider": "AWS",
+    "type": "commercial",
+    "description": "Amazon Web Services standard commercial cloud offering",
+    "availableRegions": ["eu-west-1", "eu-west-2", "eu-west-3", "eu-central-1", "eu-north-1", "eu-south-1", "me-south-1"],
+    "certifications": ["ISO27001", "SOC2", "C5"],
+    "ownershipStructure": {
+      "euOwnershipPercent": 0,
+      "largestNonEuPercent": 100,
+      "subjectToExtraTerritorialLaw": true,
+      "controllingEntity": "Amazon.com Inc. (US)",
+      "notes": "Subject to US CLOUD Act and FISA 702"
+    },
+    "jurisdictionIds": ["EU", "UK", "KSA"]
+  },
+  {
+    "id": "aws-govcloud",
+    "name": "AWS GovCloud (US)",
+    "provider": "AWS",
+    "type": "govcloud",
+    "description": "AWS isolated cloud for US government workloads, ITAR compliant",
+    "availableRegions": ["us-gov-west-1", "us-gov-east-1"],
+    "certifications": ["FedRAMP-High", "ITAR", "CJIS"],
+    "ownershipStructure": {
+      "euOwnershipPercent": 0,
+      "largestNonEuPercent": 100,
+      "subjectToExtraTerritorialLaw": true,
+      "controllingEntity": "Amazon.com Inc. (US)"
+    },
+    "jurisdictionIds": []
+  },
+  {
+    "id": "aws-eu-sovereign",
+    "name": "AWS European Sovereign Cloud",
+    "provider": "AWS",
+    "type": "sovereign",
+    "description": "AWS sovereign cloud for Europe (announced, not yet available)",
+    "availableRegions": ["eu-sovereign-1"],
+    "ownershipStructure": {
+      "euOwnershipPercent": 0,
+      "largestNonEuPercent": 100,
+      "subjectToExtraTerritorialLaw": true,
+      "controllingEntity": "Amazon.com Inc. (US)",
+      "notes": "Operational controls in EU, but ownership remains US"
+    },
+    "jurisdictionIds": ["EU"]
+  },
+  {
+    "id": "azure-commercial",
+    "name": "Microsoft Azure Commercial",
+    "provider": "Microsoft",
+    "type": "commercial",
+    "description": "Microsoft Azure standard commercial cloud offering",
+    "availableRegions": ["westeurope", "northeurope", "francecentral", "germanywestcentral", "uksouth", "uaenorth"],
+    "certifications": ["ISO27001", "SOC2", "C5"],
+    "ownershipStructure": {
+      "euOwnershipPercent": 0,
+      "largestNonEuPercent": 100,
+      "subjectToExtraTerritorialLaw": true,
+      "controllingEntity": "Microsoft Corporation (US)",
+      "notes": "Subject to US CLOUD Act"
+    },
+    "jurisdictionIds": ["EU", "UK", "KSA"]
+  },
+  {
+    "id": "azure-government",
+    "name": "Microsoft Azure Government",
+    "provider": "Microsoft",
+    "type": "govcloud",
+    "description": "Microsoft Azure for US government workloads",
+    "availableRegions": ["usgovvirginia", "usgovarizona", "usgovtexas"],
+    "certifications": ["FedRAMP-High", "CJIS", "DoD-IL4"],
+    "ownershipStructure": {
+      "euOwnershipPercent": 0,
+      "largestNonEuPercent": 100,
+      "subjectToExtraTerritorialLaw": true,
+      "controllingEntity": "Microsoft Corporation (US)"
+    },
+    "jurisdictionIds": []
+  },
+  {
+    "id": "bleu-cloud",
+    "name": "Bleu (Microsoft + Orange/Capgemini)",
+    "provider": "Bleu",
+    "type": "sovereign",
+    "description": "French sovereign cloud joint venture between Microsoft, Orange, and Capgemini",
+    "availableRegions": ["france"],
+    "certifications": [],
+    "ownershipStructure": {
+      "euOwnershipPercent": 100,
+      "largestNonEuPercent": 0,
+      "subjectToExtraTerritorialLaw": false,
+      "controllingEntity": "Bleu SAS (FR)",
+      "notes": "Pursuing SecNumCloud certification; Microsoft provides technology under license"
+    },
+    "jurisdictionIds": ["FR", "EU"]
+  },
+  {
+    "id": "google-cloud",
+    "name": "Google Cloud Platform",
+    "provider": "Google",
+    "type": "commercial",
+    "description": "Google Cloud Platform commercial offering",
+    "availableRegions": ["europe-west1", "europe-west2", "europe-west3", "europe-west4", "europe-west6", "europe-north1"],
+    "certifications": ["ISO27001", "SOC2", "C5"],
+    "ownershipStructure": {
+      "euOwnershipPercent": 0,
+      "largestNonEuPercent": 100,
+      "subjectToExtraTerritorialLaw": true,
+      "controllingEntity": "Alphabet Inc. (US)",
+      "notes": "Subject to US CLOUD Act"
+    },
+    "jurisdictionIds": ["EU", "UK"]
+  },
+  {
+    "id": "s3ns",
+    "name": "S3NS (Google + Thales)",
+    "provider": "S3NS",
+    "type": "sovereign",
+    "description": "French sovereign cloud joint venture between Google and Thales",
+    "availableRegions": ["france"],
+    "certifications": [],
+    "ownershipStructure": {
+      "euOwnershipPercent": 100,
+      "largestNonEuPercent": 0,
+      "subjectToExtraTerritorialLaw": false,
+      "controllingEntity": "S3NS SAS (FR)",
+      "notes": "Pursuing SecNumCloud certification; Google provides technology under license"
+    },
+    "jurisdictionIds": ["FR", "EU"]
+  },
+  {
+    "id": "t-systems-sovereign",
+    "name": "T-Systems Sovereign Cloud (with Google)",
+    "provider": "T-Systems",
+    "type": "national-partner",
+    "description": "German sovereign cloud operated by T-Systems with Google Cloud technology",
+    "availableRegions": ["germany"],
+    "certifications": ["C5", "ISO27001"],
+    "ownershipStructure": {
+      "euOwnershipPercent": 100,
+      "largestNonEuPercent": 0,
+      "subjectToExtraTerritorialLaw": false,
+      "controllingEntity": "Deutsche Telekom AG (DE)",
+      "notes": "German trustee model; T-Systems operates infrastructure"
+    },
+    "jurisdictionIds": ["DE", "EU"]
+  },
+  {
+    "id": "ovhcloud",
+    "name": "OVHcloud",
+    "provider": "OVHcloud",
+    "type": "sovereign",
+    "description": "French cloud provider with 100% EU ownership and SecNumCloud certification",
+    "availableRegions": ["gra", "sbg", "rbx", "bhs", "waw", "de", "uk"],
+    "certifications": ["SecNumCloud", "ISO27001", "HDS", "C5"],
+    "ownershipStructure": {
+      "euOwnershipPercent": 100,
+      "largestNonEuPercent": 0,
+      "subjectToExtraTerritorialLaw": false,
+      "controllingEntity": "OVH Groupe SAS (FR)"
+    },
+    "jurisdictionIds": ["FR", "EU", "UK", "DE"]
+  },
+  {
+    "id": "cloud-temple",
+    "name": "Cloud Temple",
+    "provider": "Cloud Temple",
+    "type": "sovereign",
+    "description": "French sovereign cloud provider with SecNumCloud certification",
+    "availableRegions": ["france"],
+    "certifications": ["SecNumCloud", "ISO27001", "HDS"],
+    "ownershipStructure": {
+      "euOwnershipPercent": 100,
+      "largestNonEuPercent": 0,
+      "subjectToExtraTerritorialLaw": false,
+      "controllingEntity": "Cloud Temple SAS (FR)"
+    },
+    "jurisdictionIds": ["FR", "EU"]
+  },
+  {
+    "id": "outscale",
+    "name": "Outscale (3DS Outscale)",
+    "provider": "Outscale",
+    "type": "sovereign",
+    "description": "Dassault Systemes cloud subsidiary with SecNumCloud certification",
+    "availableRegions": ["eu-west-2", "cloudgouv-eu-west-1"],
+    "certifications": ["SecNumCloud", "ISO27001"],
+    "ownershipStructure": {
+      "euOwnershipPercent": 100,
+      "largestNonEuPercent": 0,
+      "subjectToExtraTerritorialLaw": false,
+      "controllingEntity": "Dassault Systemes SE (FR)"
+    },
+    "jurisdictionIds": ["FR", "EU"]
+  },
+  {
+    "id": "scaleway",
+    "name": "Scaleway",
+    "provider": "Scaleway",
+    "type": "sovereign",
+    "description": "French cloud provider owned by Iliad Group",
+    "availableRegions": ["fr-par", "nl-ams", "pl-waw"],
+    "certifications": ["ISO27001", "HDS"],
+    "ownershipStructure": {
+      "euOwnershipPercent": 100,
+      "largestNonEuPercent": 0,
+      "subjectToExtraTerritorialLaw": false,
+      "controllingEntity": "Iliad SA (FR)"
+    },
+    "jurisdictionIds": ["FR", "EU", "NL"]
+  },
+  {
+    "id": "stackit",
+    "name": "STACKIT",
+    "provider": "STACKIT",
+    "type": "sovereign",
+    "description": "German cloud provider owned by Schwarz Group (Lidl/Kaufland parent company)",
+    "availableRegions": ["de-fra", "de-muc"],
+    "certifications": ["C5", "ISO27001"],
+    "ownershipStructure": {
+      "euOwnershipPercent": 100,
+      "largestNonEuPercent": 0,
+      "subjectToExtraTerritorialLaw": false,
+      "controllingEntity": "Schwarz IT KG (DE)",
+      "notes": "100% German-owned, part of Schwarz Group"
+    },
+    "jurisdictionIds": ["DE", "EU"]
+  }
+]

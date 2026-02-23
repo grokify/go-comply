@@ -1,0 +1,21 @@
+{
+  "name": "go-comply-viewer",
+  "version": "1.0.0",
+  "description": "Compliance Framework Viewer for Go-Comply",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "tabulator-tables": "^6.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "@types/tabulator-tables": "^6.3.1",
+    "typescript": "^5.7.0",
+    "vite": "^6.0.0"
+  }
+}
