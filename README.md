@@ -11,14 +11,14 @@ A Go framework for analyzing compliance regulations with machine-readable data s
 
 ## Features
 
-- **Executive Overview**: Market segment analysis with provider readiness assessment
-- **Regulation Modeling**: Define regulations, sections, and requirements with structured metadata
-- **Jurisdiction Hierarchy**: Support for countries, regions, and supranational bodies (EU)
-- **Solution Mapping**: Map cloud solutions to requirements with compliance levels
-- **Compliance Zones**: Red/Yellow/Green zone classification for data categories
-- **Enforcement Assessment**: Track enforcement likelihood and recent actions
-- **JSON I/O**: Load and save compliance data in structured JSON format
-- **Web Viewer**: Static HTML/JS viewer for browsing compliance data (GitHub Pages compatible)
+- 📊 **Executive Overview**: Market segment analysis with provider readiness assessment
+- 📜 **Regulation Modeling**: Define regulations, sections, and requirements with structured metadata
+- 🌍 **Jurisdiction Hierarchy**: Support for countries, regions, and supranational bodies (EU)
+- 🗺️ **Solution Mapping**: Map cloud solutions to requirements with compliance levels
+- 🚦 **Compliance Zones**: Red/Yellow/Green zone classification for data categories
+- ⚖️ **Enforcement Assessment**: Track enforcement likelihood and recent actions
+- 💾 **JSON I/O**: Load and save compliance data in structured JSON format
+- 🌐 **Web Viewer**: Static HTML/JS viewer for browsing compliance data (GitHub Pages compatible)
 
 ## Installation
 
