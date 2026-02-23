@@ -1,0 +1,52 @@
+{
+  "irVersion": "1.0",
+  "project": "go-comply",
+  "repository": "https://github.com/grokify/go-comply",
+  "versioning": "semver",
+  "commitConvention": "conventional",
+  "maintainers": ["grokify", "johncwang@gmail.com"],
+  "releases": [
+    {
+      "version": "v0.1.0",
+      "date": "2026-02-23",
+      "highlights": [
+        { "description": "Go framework for analyzing compliance regulations with machine-readable data structures" },
+        { "description": "CLI tool for loading, querying, and validating compliance frameworks" },
+        { "description": "Web viewer for browsing compliance data (GitHub Pages compatible)" }
+      ],
+      "added": [
+        { "description": "Core compliance data model: Jurisdiction, Regulation, Requirement, Solution, Mapping, ZoneAssignment, EnforcementAssessment types", "commit": "ff5ba52" },
+        { "description": "ComplianceFramework container with query methods for requirements, solutions, mappings, and zones", "commit": "ff5ba52" },
+        { "description": "ComplianceAnalysis and ExecutiveOverview types for strategic reporting", "commit": "ff5ba52" },
+        { "description": "ResearchInput processing with validation and analysis", "commit": "ff5ba52" },
+        { "description": "JSON file I/O utilities for loading and saving compliance frameworks", "commit": "ff5ba52" },
+        { "description": "`comply` CLI with load, list, query, validate, coverage, and import-research commands", "commit": "90f6ee7" },
+        { "description": "TypeScript/Vite web viewer with executive overview dashboard", "commit": "da4dcb1" },
+        { "description": "Interactive tables and modal dialogs for browsing compliance data", "commit": "da4dcb1" },
+        { "description": "Color-coded compliance zone visualization (Red/Yellow/Green)", "commit": "da4dcb1" },
+        { "description": "JSON schemas for research-input, compliance-analysis, and executive-overview", "commit": "4054812" },
+        { "description": "Minimal example framework with sample jurisdictions, regulations, and solutions", "commit": "4054812" }
+      ],
+      "fixed": [
+        { "description": "Use `fmt.Fprintf` instead of `WriteString` with `Sprintf` per staticcheck QF1012", "commit": "ad318eb" }
+      ],
+      "tests": [
+        { "description": "Unit tests for ComplianceFramework query methods", "commit": "2650106" },
+        { "description": "I/O tests for JSON serialization and file operations", "commit": "2650106" },
+        { "description": "Integration tests using example data", "commit": "2650106" }
+      ],
+      "documentation": [
+        { "description": "README with installation, CLI usage, library API, and data model reference", "commit": "f29ccbe" },
+        { "description": "MkDocs documentation site with guides for compliance officers, research assistants, developers, and data maintainers", "commit": "f29ccbe" },
+        { "description": "Reference documentation for regulations, requirements, solutions, and control mapping", "commit": "f29ccbe" },
+        { "description": "Added shields for CI, lint, SAST, Go Report Card, pkg.go.dev, and license", "commit": "c27f8a3" },
+        { "description": "Added emoji icons to README features section", "commit": "e1a811b" }
+      ],
+      "infrastructure": [
+        { "description": "GitHub Actions workflows for CI, linting, and CodeQL SAST", "commit": "5ccf128" },
+        { "description": "Gitignore for build artifacts and IDE files", "commit": "d5cb175" },
+        { "description": "MIT license", "commit": "d5cb175" }
+      ]
+    }
+  ]
+}
