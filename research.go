@@ -438,38 +438,38 @@ func (a *ResearchAnalysis) PrintReport() string {
 	sb.WriteString("Research Analysis Report\n")
 	sb.WriteString("========================\n\n")
 
-	sb.WriteString(fmt.Sprintf("Total Findings: %d\n", a.TotalFindings))
-	sb.WriteString(fmt.Sprintf("Unique Controls: %d\n", a.UniqueControls))
-	sb.WriteString(fmt.Sprintf("Unique Solutions: %d\n", a.UniqueSolutions))
-	sb.WriteString(fmt.Sprintf("Jurisdictions: %s\n", strings.Join(a.JurisdictionIDs, ", ")))
+	fmt.Fprintf(&sb, "Total Findings: %d\n", a.TotalFindings)
+	fmt.Fprintf(&sb, "Unique Controls: %d\n", a.UniqueControls)
+	fmt.Fprintf(&sb, "Unique Solutions: %d\n", a.UniqueSolutions)
+	fmt.Fprintf(&sb, "Jurisdictions: %s\n", strings.Join(a.JurisdictionIDs, ", "))
 	sb.WriteString("\n")
 
 	sb.WriteString("Status Breakdown:\n")
 	for status, count := range a.StatusBreakdown {
-		sb.WriteString(fmt.Sprintf("  %-15s %d (%.1f%%)\n", status, count, float64(count)/float64(a.TotalFindings)*100))
+		fmt.Fprintf(&sb, "  %-15s %d (%.1f%%)\n", status, count, float64(count)/float64(a.TotalFindings)*100)
 	}
 	sb.WriteString("\n")
 
 	sb.WriteString("Zone Breakdown:\n")
 	for zone, count := range a.ZoneBreakdown {
-		sb.WriteString(fmt.Sprintf("  %-10s %d (%.1f%%)\n", zone, count, float64(count)/float64(a.TotalFindings)*100))
+		fmt.Fprintf(&sb, "  %-10s %d (%.1f%%)\n", zone, count, float64(count)/float64(a.TotalFindings)*100)
 	}
 	sb.WriteString("\n")
 
 	sb.WriteString("Evidence Coverage:\n")
-	sb.WriteString(fmt.Sprintf("  With Evidence:    %d (%.1f%%)\n", a.WithEvidence, float64(a.WithEvidence)/float64(a.TotalFindings)*100))
-	sb.WriteString(fmt.Sprintf("  Missing Evidence: %d (%.1f%%)\n", a.MissingEvidence, float64(a.MissingEvidence)/float64(a.TotalFindings)*100))
+	fmt.Fprintf(&sb, "  With Evidence:    %d (%.1f%%)\n", a.WithEvidence, float64(a.WithEvidence)/float64(a.TotalFindings)*100)
+	fmt.Fprintf(&sb, "  Missing Evidence: %d (%.1f%%)\n", a.MissingEvidence, float64(a.MissingEvidence)/float64(a.TotalFindings)*100)
 	sb.WriteString("\n")
 
 	sb.WriteString("Findings by Solution:\n")
 	for sol, count := range a.FindingsBySolution {
-		sb.WriteString(fmt.Sprintf("  %-25s %d\n", sol, count))
+		fmt.Fprintf(&sb, "  %-25s %d\n", sol, count)
 	}
 	sb.WriteString("\n")
 
-	sb.WriteString(fmt.Sprintf("Control IDs (%d):\n", len(a.ControlIDs)))
+	fmt.Fprintf(&sb, "Control IDs (%d):\n", len(a.ControlIDs))
 	for _, c := range a.ControlIDs {
-		sb.WriteString(fmt.Sprintf("  %s\n", c))
+		fmt.Fprintf(&sb, "  %s\n", c)
 	}
 
 	return sb.String()
